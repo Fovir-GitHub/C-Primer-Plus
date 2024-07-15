@@ -49,6 +49,10 @@ int main(int argc, char* argv[])
 		putc('\n', stdout);
 	}
 
+	// Close files.
+	fclose(first);
+	fclose(second);
+
 	return 0;
 
 }
