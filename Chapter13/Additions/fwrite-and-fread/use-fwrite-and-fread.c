@@ -11,7 +11,7 @@ int main(void)
 
 	// Use fwrite().
 	char* str = "This is a test.";
-	double number = 0.123456;
+	double number = (double)1 / 3;
 
 	// Open output file.
 	out = fopen("fwrite1.out", "w");
