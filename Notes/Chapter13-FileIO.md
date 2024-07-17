@@ -1,4 +1,6 @@
-# main() arguments
+# Chapter 13 File Input & Output
+
+## main() arguments
 
 To start program from command-line,we need add arguments to main() function.
 Usaually, the statement is like this:
@@ -25,7 +27,7 @@ argv[1] test.in
 argv[2] test.out
 ```
 
-# Open file and close file
+## Open file and close file
 
 To open a file, we should use `FILE` to  declare a pointer.
 For example:
@@ -84,5 +86,69 @@ int main(void)
 If closing the file successfully, the function will return 0.
 
 **Attention:**
+
 1. Never use `fclose()` to close a file that have not opened yet.
 2. If the `fopen()` return `NULL`, it means the file can't be opened, so the file doesn't open! As a result, Don't use `fclose()` to close it.
+
+## Pointers to the Standard Files
+
+In `<stdio.h>`, there are 3 file pointer, `stdin`, `stdout` and `stderr` .
+
+| Pointer | Normally |
+|----|---|
+|stdin|Keyboard|
+|stdout|Screen|
+|stderr|Screen|
+
+## getc() & putc()
+
+The two functions are similar to `getchar()` and `putchar()` .
+
+When the `getc()` function get the End-of-File, it will return a value called `EOF` . We can use this to see whether it read to the end of the file.
+
+## fprintf() & fscanf()
+
+`fprintf()` output to its first argument, which can be stdout, stderr or a file pointer.
+`fscanf()` get input from its first argument, which can be stdin or a file pointer.
+
+The `fscanf()` stop reading till `\n` or space. And it does not store `\n` and space.
+
+## fgets() & fputs()
+
+They are similar to `gets()` and `puts()`. 
+
+The `fgets()` function prototype is:
+
+
+```c
+fgets(buf, STLEN, fp);
+```
+
+It stops reading till EOF (or end of a line) or one fewer than the `STLEN` limit.
+Its reading includes `\n` .
+
+However, `fputs()` doesn't add `\n` at the end of output.
+That makes `fgets()` and `fputs()` be used together better.
+
+## fseek() & ftell()
+
+The two function allow us to treat a file like an array.
+We can use `fseek()` to go to the target place and `ftell()` to get where we are.
+
+The `fseek()` function prototype is:
+
+```c
+fseek (FILE *__stream, long int __off, int __whence);
+```
+
+The last argument can be set to 3 values:
+
+| Mode | Offset form |
+| --- | --- |
+| SEEK_SET | Beginning of file. |
+| SEEK_CUR | Current position. |
+| SEEK_END | End of file. |
+
+This argument defines the start point.
+
+And the second argument is a `long` type which is used to set the offset. It can be positive or negative. The positive means moving forward and the negative means moving backward.
