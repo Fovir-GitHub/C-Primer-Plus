@@ -51,7 +51,8 @@ int main(void)
 	puts("Please add new book titles.");
 	puts("Press [enter] at the start of a line to stop.");
 
-	while (count < MAXBKS && s_gets(library[count].title, MAXTITL) != NULL
+	while (count < MAXBKS
+		&& s_gets(library[count].title, MAXTITL) != NULL
 		&& library[count].title[0] != '\0')
 	{
 		puts("Now enter the author.");
