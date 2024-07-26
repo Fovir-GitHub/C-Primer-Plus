@@ -139,15 +139,6 @@ void InitSeats(seat st[], int n)
 
 	fp = fopen("./seat.data", "r");
 
-	// while (index < n)
-	// {
-	// 	fscanf(fp, "%d", &seat_number);	// get seat number.
-	// 	fscanf(fp, "%s %s", st[seat_number].FirstName,
-	// 		st[seat_number].LastName); // get name.
-	// 	st[seat_number].isAssigned = true;	// mark as assigned.
-	// 	index++;
-	// }
-
 	while (fscanf(fp, "%d", &seat_number) == 1)
 	{
 		fscanf(fp, "%s %s", st[seat_number].FirstName,
