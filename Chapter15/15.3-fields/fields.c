@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include<stdbool.h>
 
+// line styles.
 #define SOLID 0
 #define DOTTED 1
 #define DASHED 2
-
+// primary colors.
 #define BLUE 4
 #define GREEN 2
 #define RED 1
-
+// mixed colors.
 #define BLACK 0
 #define YELLOW (RED | GREEN)
 #define MAGENTA (RED | BLUE)
