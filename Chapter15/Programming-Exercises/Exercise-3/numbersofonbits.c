@@ -23,7 +23,7 @@ int CountOnBits(int n)
 
 	while (n)
 	{
-		if ((n | 1) == n)
+		if (n & 1)
 			Count++;
 		n >>= 1;
 	}
