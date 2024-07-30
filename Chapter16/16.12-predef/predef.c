@@ -19,6 +19,5 @@ void why_me(void)
 {
 	printf("This function is %s\n", __func__);
 	printf("This is line %d.\n", __LINE__);
-
 	return;
 }
