@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include<assert.h>
+#include<stdlib.h>
 
 int main(void)
 {
@@ -11,7 +12,13 @@ int main(void)
 		&& (x != 0 || y != 0))
 	{
 		z = x * x - y * y;
+		// both are OK
 		assert(z >= 0);
+		// if (z < 0)
+		// {
+		// 	puts("z less than 0");
+		// 	abort();
+
 		printf("answer is %f\n", sqrt(z));
 		puts("Next pair of numbers:");
 	}
