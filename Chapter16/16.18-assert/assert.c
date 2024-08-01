@@ -1,3 +1,6 @@
+// disable assert()
+// #define NDEBUG
+
 #include<stdio.h>
 #include<math.h>
 #include<assert.h>
@@ -18,11 +21,10 @@ int main(void)
 		// {
 		// 	puts("z less than 0");
 		// 	abort();
-
+		// }
 		printf("answer is %f\n", sqrt(z));
 		puts("Next pair of numbers:");
 	}
-
 	puts("Done.");
 
 	return 0;
