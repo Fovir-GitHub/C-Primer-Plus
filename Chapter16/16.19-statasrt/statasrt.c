@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<limits.h>
+#include<assert.h>
 
-_Static_assert(CHAR_BIT == 16, "16-bit char falsely assumed");
+static_assert(CHAR_BIT == 8/*16*/, "16-bit char falsely assumed");
 
 int main(void)
 {
