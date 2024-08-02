@@ -55,8 +55,9 @@ int main(void)
 	current = head;
 	while (current)
 	{
+		head = current->next;
 		free(current);
-		current = current->next;
+		current = head;
 	}
 
 	puts("Bye!");
