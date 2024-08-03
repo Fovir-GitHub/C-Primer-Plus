@@ -1,3 +1,9 @@
+// Write a program that lets you input a string.
+// The program then should push the characters of the string onto a stack,
+// one by one(see review question 5),
+// and then pop the characters from the stack and display them.
+// This results in displaying the string in reverse order.
+
 #include<stdio.h>
 #include"stack.h"
 
