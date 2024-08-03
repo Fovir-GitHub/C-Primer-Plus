@@ -23,10 +23,10 @@ bool add_item_to_stack(item new_item, stack * st)
 	if (!new_node)	/* new_node is NULL */
 		return false;
 
-	new_node->node_item = new_item;
+	new_node->node_item = new_item;	/* set item*/
 	new_node->next = NULL;
 
-	if (stack_is_empty(st))
+	if (stack_is_empty(st))	/* the first node */
 	{
 		new_node->front = NULL;
 		st->head = new_node;
@@ -53,7 +53,7 @@ item pop_up_from_stack(stack * st)
 	node * temp = st->rear;	/* back up the pointer of stack rear */
 	item return_item = st->rear->node_item;	/* the return value */
 
-	if (st->head == st->rear)
+	if (st->head == st->rear)	/* only one element in stack */
 		st->head = st->rear = NULL;
 	else
 	{
@@ -72,11 +72,12 @@ void clear_stack(stack * st)
 
 	while (st->head)	/* stack->head != NULL */
 	{
-		temp = st->rear;
-		st->head = st->head->next;
+		temp = st->rear;	/* back up st->rear */
+		st->rear = st->rear->front;	/* move to the next */
 		free(temp);
 	}
 	st->rear = NULL;
+	st->head = NULL;
 
 	return;
 }

@@ -3,7 +3,7 @@
  * @Email: fovir@disroot.org
  * @Date: 2024-08-03 22:21:24
  * @Last Modified by:   Fovir
- * @Last Modified time: 2024-08-03 23:32:13
+ * @Last Modified time: 2024-08-03 23:47:03
  * @Description: This is my own stack header file.
  *				The stack is a FILO data structure.
  */
