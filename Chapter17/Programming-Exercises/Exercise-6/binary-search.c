@@ -39,7 +39,7 @@ int main(void)
 
 void generate_data(int data[], int n)
 {
-	for (int i = 0;i < n;i++)
+	for (int i = 0; i < n; i++)
 		data[i] = rand() % 1000;
 
 	return;
@@ -47,7 +47,7 @@ void generate_data(int data[], int n)
 
 void output_data(int data[], int n)
 {
-	for (int i = 0;i < n;i++)
+	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", data[i]);
 		if (i > 0 && i % 5 == 0)
