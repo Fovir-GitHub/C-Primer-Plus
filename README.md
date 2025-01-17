@@ -2,4 +2,3 @@
 
 Storing the source code of *C Primer Plus*.
 
-> Test
