@@ -8,51 +8,47 @@
 // 	b.Modify the program so that lines with
 // the same line number are printed on the same line.
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(int argc, char* argv[])
+int main(int argc, char * argv[])
 {
-	FILE* first, * second;
-	char ch = 0;
+    FILE *first, *second;
+    char ch = 0;
 
-	// If arguments are error.
-	if (argc != 3)
-	{
-		fprintf(stderr, "Usage: %s filename1 filename2",
-			argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	// If can't open file.
-	if ((first = fopen(argv[1], "r")) == NULL)
-	{
-		fprintf(stderr, "Can't open the first file.");
-		exit(EXIT_FAILURE);
-	}
-	if ((second = fopen(argv[2], "r")) == NULL)
-	{
-		fprintf(stderr, "Can't open the second file.");
-		exit(EXIT_FAILURE);
-	}
-	while (!(feof(first) && feof(second)))
-	{
-		if (!feof(first))
-		{
-			while ((ch = getc(first)) != '\n' && ch != EOF)
-				putc(ch, stdout);
-			putc(' ', stdout);
-		}
-		if (!feof(second))
-			while ((ch = getc(second)) != '\n' && ch != EOF)
-				putc(ch, stdout);
+    // If arguments are error.
+    if (argc != 3)
+    {
+        fprintf(stderr, "Usage: %s filename1 filename2", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+    // If can't open file.
+    if ((first = fopen(argv[1], "r")) == NULL)
+    {
+        fprintf(stderr, "Can't open the first file.");
+        exit(EXIT_FAILURE);
+    }
+    if ((second = fopen(argv[2], "r")) == NULL)
+    {
+        fprintf(stderr, "Can't open the second file.");
+        exit(EXIT_FAILURE);
+    }
+    while (!(feof(first) && feof(second)))
+    {
+        if (!feof(first))
+        {
+            while ((ch = getc(first)) != '\n' && ch != EOF) putc(ch, stdout);
+            putc(' ', stdout);
+        }
+        if (!feof(second))
+            while ((ch = getc(second)) != '\n' && ch != EOF) putc(ch, stdout);
 
-		putc('\n', stdout);
-	}
+        putc('\n', stdout);
+    }
 
-	// Close files.
-	fclose(first);
-	fclose(second);
+    // Close files.
+    fclose(first);
+    fclose(second);
 
-	return 0;
-
+    return 0;
 }

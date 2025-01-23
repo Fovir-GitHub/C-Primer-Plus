@@ -11,52 +11,51 @@
 // containing the
 // rectangular coordinates(or use pointers to such structures, if you prefer).
 
-#include<stdio.h>
-#include<math.h>
+#include <math.h>
+#include <stdio.h>
 
 typedef struct _POLAR_COORDINATE_
 {
-	double r, angle;
-}polar_coordinate;
+    double r, angle;
+} polar_coordinate;
 
 typedef struct _RECT_COORDINATE_
 {
-	double x, y;
-}rect_coordinate;
+    double x, y;
+} rect_coordinate;
 
 rect_coordinate convert_polar_to_rect(const polar_coordinate * pc);
 void show_rect_coordinate(const rect_coordinate * rc);
 
 int main(void)
 {
-	polar_coordinate user_input;
-	rect_coordinate output;
+    polar_coordinate user_input;
+    rect_coordinate output;
 
-	puts("Please enter r and angle:");
-	while (scanf("%lf %lf", &user_input.r, &user_input.angle) == 2)
-	{
-		output = convert_polar_to_rect(&user_input);
-		show_rect_coordinate(&output);
+    puts("Please enter r and angle:");
+    while (scanf("%lf %lf", &user_input.r, &user_input.angle) == 2)
+    {
+        output = convert_polar_to_rect(&user_input);
+        show_rect_coordinate(&output);
 
-		puts("Next group, please");
-	}
+        puts("Next group, please");
+    }
 
-	return 0;
+    return 0;
 }
 
 rect_coordinate convert_polar_to_rect(const polar_coordinate * pc)
 {
-	rect_coordinate result;
-	result.x = (double)pc->r * cos(pc->angle);
-	result.y = (double)pc->r * sin(pc->angle);
+    rect_coordinate result;
+    result.x = (double) pc->r * cos(pc->angle);
+    result.y = (double) pc->r * sin(pc->angle);
 
-	return result;
+    return result;
 }
 
 void show_rect_coordinate(const rect_coordinate * rc)
 {
-	printf("(x,y) = (%g, %g)\n",
-		rc->x, rc->y);
+    printf("(x,y) = (%g, %g)\n", rc->x, rc->y);
 
-	return;
+    return;
 }

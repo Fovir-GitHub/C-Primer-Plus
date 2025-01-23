@@ -21,26 +21,26 @@
 // e.Data is saved in a file between runs.When the program is restarted,
 // it first loads in the data, if any, from the file.
 
-#include<stdio.h>
-#include<stdbool.h>
-#include<ctype.h>
-#include<string.h>
-#include<stdlib.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define SEATNUMBER 12
 #define NAMELENGTH 41
 
 typedef struct _SEAT_
 {
-	int IndentificationNumber;
-	bool isAssigned;
+    int IndentificationNumber;
+    bool isAssigned;
 
-	struct
-	{
-		char FirstName[NAMELENGTH];
-		char LastName[NAMELENGTH];
-	};
-}seat;
+    struct
+    {
+        char FirstName[NAMELENGTH];
+        char LastName[NAMELENGTH];
+    };
+} seat;
 
 int GetChoice(void);
 void EatLine(void);
@@ -55,199 +55,196 @@ static int EmptySeatNumber = SEATNUMBER;
 
 int main(void)
 {
-	seat Seats[SEATNUMBER];
-	int choice = 0;
+    seat Seats[SEATNUMBER];
+    int choice = 0;
 
-	InitSeats(Seats, SEATNUMBER);
+    InitSeats(Seats, SEATNUMBER);
 
-	while (true)
-	{
-		choice = GetChoice();
+    while (true)
+    {
+        choice = GetChoice();
 
-		switch (choice)
-		{
-		case 'a':
-			printf("Empty seats remains %d\n", EmptySeatNumber);
-			break;
-		case 'b':
-			ShowEmptySeatsList(Seats, SEATNUMBER);
-			break;
-		case 'c':
-			ShowAlphabeticalList(Seats, SEATNUMBER);
-			break;
-		case 'd':
-			AssignNewCustomer(Seats, SEATNUMBER);
-			break;
-		case 'e':
-			DeleteSeatAssignment(Seats, SEATNUMBER);
-			break;
-		case 'f':
-			BeforeQuit(Seats, SEATNUMBER);
-			return 0;
-		}
-		puts("Press [enter] to continue.");
-		EatLine();
-	}
+        switch (choice)
+        {
+        case 'a':
+            printf("Empty seats remains %d\n", EmptySeatNumber);
+            break;
+        case 'b':
+            ShowEmptySeatsList(Seats, SEATNUMBER);
+            break;
+        case 'c':
+            ShowAlphabeticalList(Seats, SEATNUMBER);
+            break;
+        case 'd':
+            AssignNewCustomer(Seats, SEATNUMBER);
+            break;
+        case 'e':
+            DeleteSeatAssignment(Seats, SEATNUMBER);
+            break;
+        case 'f':
+            BeforeQuit(Seats, SEATNUMBER);
+            return 0;
+        }
+        puts("Press [enter] to continue.");
+        EatLine();
+    }
 
-	return 0;
+    return 0;
 }
 
 int GetChoice(void)
 {
-	int choice = 0;
+    int choice = 0;
 
-	// put menu.
-	puts("To choose a function, enter its letter label:");
-	puts("a) Show number of empty seats");
-	puts("b) Show list of empty seats");
-	puts("c) Show alphabetical list of seats");
-	puts("d) Assign a customer to a seat assignment");
-	puts("e) Delete a seat assignment");
-	puts("f) Quit");
+    // put menu.
+    puts("To choose a function, enter its letter label:");
+    puts("a) Show number of empty seats");
+    puts("b) Show list of empty seats");
+    puts("c) Show alphabetical list of seats");
+    puts("d) Assign a customer to a seat assignment");
+    puts("e) Delete a seat assignment");
+    puts("f) Quit");
 
-	while (choice = getchar())
-	{
-		EatLine();
-		if (strchr("abcdef", choice) == NULL)
-			puts("Please input the right choice.");
-		else
-			break;
-	}
+    while (choice = getchar())
+    {
+        EatLine();
+        if (strchr("abcdef", choice) == NULL)
+            puts("Please input the right choice.");
+        else
+            break;
+    }
 
-	return choice;
+    return choice;
 }
 
 void EatLine(void)
 {
-	while (getchar() != '\n')
-		continue;
-	return;
+    while (getchar() != '\n') continue;
+    return;
 }
 
 void InitSeats(seat st[], int n)
 {
-	for (int i = 0;i < n;i++)
-	{
-		st[i].IndentificationNumber = i;
-		st[i].isAssigned = false;
-	}
+    for (int i = 0; i < n; i++)
+    {
+        st[i].IndentificationNumber = i;
+        st[i].isAssigned = false;
+    }
 
-	// read from file.
-	FILE * fp;
-	int seat_number;
-	int index = 0;
+    // read from file.
+    FILE * fp;
+    int seat_number;
+    int index = 0;
 
-	fp = fopen("./seat.data", "r");
+    fp = fopen("./seat.data", "r");
 
-	while (fscanf(fp, "%d", &seat_number) == 1)
-	{
-		fscanf(fp, "%s %s", st[seat_number].FirstName,
-			st[seat_number].LastName);
-		st[seat_number].isAssigned = true;
-		EmptySeatNumber--;
-	}
+    while (fscanf(fp, "%d", &seat_number) == 1)
+    {
+        fscanf(fp, "%s %s", st[seat_number].FirstName,
+               st[seat_number].LastName);
+        st[seat_number].isAssigned = true;
+        EmptySeatNumber--;
+    }
 
-	fclose(fp);	// close file.
+    fclose(fp); // close file.
 }
 
 void ShowEmptySeatsList(const seat st[], int n)
 {
-	puts("Empty seats number:");
+    puts("Empty seats number:");
 
-	for (int i = 0;i < n;i++)
-		if (!st[i].isAssigned)
-			printf("%d\n", st[i].IndentificationNumber);
+    for (int i = 0; i < n; i++)
+        if (!st[i].isAssigned)
+            printf("%d\n", st[i].IndentificationNumber);
 
-	return;
+    return;
 }
 
 void AssignNewCustomer(seat st[], int n)
 {
-	int seat_number;
+    int seat_number;
 
-	puts("Please enter your seat number:");
+    puts("Please enter your seat number:");
 
-	while (scanf("%d", &seat_number) == 1)
-	{
-		if (seat_number < 0 || seat_number >= SEATNUMBER)
-		{
-			printf("Please enter a number range from 1 to %d\n",
-				SEATNUMBER - 1);
-			continue;
-		}
-		if (st[seat_number].isAssigned)
-			printf("The %d seat had been assigned by "
-				"%s %s. Please choose another one.",
-				st[seat_number].IndentificationNumber,
-				st[seat_number].FirstName, st[seat_number].LastName);
-		else
-		{
-			printf("The %d seat is vailable!\n",
-				st[seat_number].IndentificationNumber);
-			st[seat_number].isAssigned = true;
-			break;
-		}
-	}
+    while (scanf("%d", &seat_number) == 1)
+    {
+        if (seat_number < 0 || seat_number >= SEATNUMBER)
+        {
+            printf("Please enter a number range from 1 to %d\n",
+                   SEATNUMBER - 1);
+            continue;
+        }
+        if (st[seat_number].isAssigned)
+            printf("The %d seat had been assigned by "
+                   "%s %s. Please choose another one.",
+                   st[seat_number].IndentificationNumber,
+                   st[seat_number].FirstName, st[seat_number].LastName);
+        else
+        {
+            printf("The %d seat is vailable!\n",
+                   st[seat_number].IndentificationNumber);
+            st[seat_number].isAssigned = true;
+            break;
+        }
+    }
 
-	puts("Please enter your first name:");
-	scanf("%s", st[seat_number].FirstName);
-	puts("Please enter your last name:");
-	scanf("%s", st[seat_number].LastName);
+    puts("Please enter your first name:");
+    scanf("%s", st[seat_number].FirstName);
+    puts("Please enter your last name:");
+    scanf("%s", st[seat_number].LastName);
 
-	puts("Assign successfully!");
+    puts("Assign successfully!");
 
-	return;
+    return;
 }
 
 void DeleteSeatAssignment(seat st[], int n)
 {
-	int seat_number;
-	puts("Please input your seat:");
+    int seat_number;
+    puts("Please input your seat:");
 
-	while (scanf("%d", &seat_number))
-	{
-		if (seat_number < 0 || seat_number >= SEATNUMBER)
-			printf("Please enter a number range from 1 to %d\n",
-				SEATNUMBER - 1);
-		else if (!st[seat_number].isAssigned)
-			puts("The seat have not been assigned!");
-		else
-		{
-			st[seat_number].isAssigned = false;
-			break;
-		}
-	}
+    while (scanf("%d", &seat_number))
+    {
+        if (seat_number < 0 || seat_number >= SEATNUMBER)
+            printf("Please enter a number range from 1 to %d\n",
+                   SEATNUMBER - 1);
+        else if (!st[seat_number].isAssigned)
+            puts("The seat have not been assigned!");
+        else
+        {
+            st[seat_number].isAssigned = false;
+            break;
+        }
+    }
 
-	puts("Delete assignment successfully!");
+    puts("Delete assignment successfully!");
 
-	return;
+    return;
 }
 
 void BeforeQuit(seat st[], int n)
 {
-	FILE * fp;
-	fp = fopen("./seat.data", "w");
-	for (int i = 0;i < n;i++)
-		if (st[i].isAssigned)
-			fprintf(fp, "%d %s %s\n",
-				st[i].IndentificationNumber,
-				st[i].FirstName, st[i].LastName);
-	fclose(fp);
+    FILE * fp;
+    fp = fopen("./seat.data", "w");
+    for (int i = 0; i < n; i++)
+        if (st[i].isAssigned)
+            fprintf(fp, "%d %s %s\n", st[i].IndentificationNumber,
+                    st[i].FirstName, st[i].LastName);
+    fclose(fp);
 
-	return;
+    return;
 }
 
 void ShowAlphabeticalList(seat st[], int n)
 {
-	for (int i = 0;i < n;i++)
-	{
-		if (st[i].isAssigned)
-			printf("%d: %s %s\n",
-				st[i].IndentificationNumber,
-				st[i].FirstName, st[i].LastName);
-		else
-			printf("%d: Empty\n", i);
-	}
+    for (int i = 0; i < n; i++)
+    {
+        if (st[i].isAssigned)
+            printf("%d: %s %s\n", st[i].IndentificationNumber, st[i].FirstName,
+                   st[i].LastName);
+        else
+            printf("%d: Empty\n", i);
+    }
 
-	return;
+    return;
 }

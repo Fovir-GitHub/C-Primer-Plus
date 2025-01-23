@@ -1,28 +1,27 @@
 #ifndef _QUEUE_H_
 #define _QUEUE_H_
 
-#include<stdbool.h>
+#include <stdbool.h>
 #define MAXQUEUE 10
 
 typedef struct item
 {
-	long arrive;
-	int processtime;
-}Item;
-
+    long arrive;
+    int processtime;
+} Item;
 
 typedef struct node
 {
-	Item item;
-	struct node * next;
-}Node;
+    Item item;
+    struct node * next;
+} Node;
 
 typedef struct queue
 {
-	Node * front;
-	Node * rear;
-	int items;
-}Queue;
+    Node * front;
+    Node * rear;
+    int items;
+} Queue;
 
 void InitializeQueue(Queue * pq);
 bool QueueIsFull(const Queue * pq);

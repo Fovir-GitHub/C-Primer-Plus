@@ -15,51 +15,49 @@
 // and two suitable functions of your own devising as arguments
 // to successive calls of the  transform() function.
 
-#include<stdio.h>
-#include<math.h>
-#include<stdlib.h>
-#include<time.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define SIZE 200
 
 void transform(double source[], double target[], int number,
-	double (*func)(double));
+               double (*func)(double));
 void GenerateData(double arr[], int n);
 void OutputArray(double arr[], int n);
 
 int main(void)
 {
-	const int GenerateNumber = 20;
-	srand(time(NULL));
-	double Source[SIZE];
-	double Target[SIZE];
-	GenerateData(Source, SIZE);
-	OutputArray(Source, GenerateNumber);
-	putchar('\n');
-	transform(Source, Target, GenerateNumber, tan);
-	OutputArray(Target, GenerateNumber);
+    const int GenerateNumber = 20;
+    srand(time(NULL));
+    double Source[SIZE];
+    double Target[SIZE];
+    GenerateData(Source, SIZE);
+    OutputArray(Source, GenerateNumber);
+    putchar('\n');
+    transform(Source, Target, GenerateNumber, tan);
+    OutputArray(Target, GenerateNumber);
 
-	return 0;
+    return 0;
 }
 
-void transform(double source[], double target[], int number, double(*func)(double))
+void transform(double source[], double target[], int number,
+               double (*func)(double))
 {
-	for (int i = 0;i < number;i++)
-		target[i] = func(source[i]);
-	return;
+    for (int i = 0; i < number; i++) target[i] = func(source[i]);
+    return;
 }
 
 void GenerateData(double arr[], int n)
 {
-	for (int i = 0;i < n;i++)
-		arr[i] = (double)rand() / 123;
-	return;
+    for (int i = 0; i < n; i++) arr[i] = (double) rand() / 123;
+    return;
 }
 
 void OutputArray(double arr[], int n)
 {
-	for (int i = 1;i <= n;i++)
-		printf("%lf%c", arr[i - 1],
-			(i % 5 ? ' ' : '\n'));
-	return;
+    for (int i = 1; i <= n; i++)
+        printf("%lf%c", arr[i - 1], (i % 5 ? ' ' : '\n'));
+    return;
 }

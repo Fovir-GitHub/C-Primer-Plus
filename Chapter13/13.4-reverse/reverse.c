@@ -1,7 +1,7 @@
 // displays a file in reverse order
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define CNTL_Z '\032'
 #define SLEN 81
@@ -10,7 +10,7 @@ int main(void)
 {
     char file[SLEN];
     char ch;
-    FILE* fp;
+    FILE * fp;
     long count, last;
 
     puts("Enter the name of the file to be processed:");
@@ -27,7 +27,7 @@ int main(void)
 
     printf("Last = %ld\n", last);
 
-    for (count = 1L;count <= last;count++)
+    for (count = 1L; count <= last; count++)
     {
         fseek(fp, -count, SEEK_END);
         ch = getc(fp);

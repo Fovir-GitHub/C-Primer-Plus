@@ -11,22 +11,22 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#include<stdbool.h>
+#include <stdbool.h>
 
 typedef char item;
 
 typedef struct Node
 {
-	item node_item;
-	struct Node * front;
-	struct Node * next;
-}node;
+    item node_item;
+    struct Node * front;
+    struct Node * next;
+} node;
 
 typedef struct Stack
 {
-	node * head;
-	node * rear;
-}stack;
+    node * head;
+    node * rear;
+} stack;
 
 /// @brief This function is used to initialize a stack.
 /// @param st the stack
@@ -45,7 +45,8 @@ bool add_item_to_stack(item new_item, stack * st);
 
 /// @brief The function is used to pop the first element up from the stack.
 /// @param st the stack
-/// @return If pop up successfully, it will return the item from the back of stack.
+/// @return If pop up successfully, it will return the item from the back of
+/// stack.
 item pop_up_from_stack(stack * st);
 
 /// @brief The function is used to clear the stack.

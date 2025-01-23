@@ -1,11 +1,11 @@
-#include<string.h>
+#include <string.h>
 
 #define SLEN 32
 
 struct names_st
 {
-	char first[SLEN];
-	char last[SLEN];
+    char first[SLEN];
+    char last[SLEN];
 };
 
 typedef struct names_st names;

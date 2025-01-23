@@ -9,47 +9,47 @@
 // Use this structure in a program that displays the font parameters
 // and uses a looped menu to let the user change parameters.
 
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
-#include"font.h"
+#include "font.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
-	font MyFont = { 1,12,0,false,false,false };
-	int Choice;
+    font MyFont = {1, 12, 0, false, false, false};
+    int Choice;
 
-	while (true)
-	{
-		Choice = GetChoice(&MyFont);
+    while (true)
+    {
+        Choice = GetChoice(&MyFont);
 
-		switch (Choice)
-		{
-		case 'f':
-			ChangeFont(&MyFont);
-			EatLine();
-			break;
-		case 's':
-			ChangeFontSize(&MyFont);
-			EatLine();
-			break;
-		case 'a':
-			ChangeAlignment(&MyFont);
-			break;
-		case 'b':
-			ToggleStyle(&MyFont, BOLD);
-			break;
-		case 'i':
-			ToggleStyle(&MyFont, ITALIC);
-			break;
-		case 'u':
-			ToggleStyle(&MyFont, UNDERLINE);
-			break;
-		case 'q':
-			printf("Bye!");
-			return 0;
-		}
-	}
+        switch (Choice)
+        {
+        case 'f':
+            ChangeFont(&MyFont);
+            EatLine();
+            break;
+        case 's':
+            ChangeFontSize(&MyFont);
+            EatLine();
+            break;
+        case 'a':
+            ChangeAlignment(&MyFont);
+            break;
+        case 'b':
+            ToggleStyle(&MyFont, BOLD);
+            break;
+        case 'i':
+            ToggleStyle(&MyFont, ITALIC);
+            break;
+        case 'u':
+            ToggleStyle(&MyFont, UNDERLINE);
+            break;
+        case 'q':
+            printf("Bye!");
+            return 0;
+        }
+    }
 
-	return 0;
+    return 0;
 }

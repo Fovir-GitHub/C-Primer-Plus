@@ -1,7 +1,7 @@
 #ifndef _MY_TREE_H_
 #define _MY_TREE_H_
 
-#include<stdbool.h>
+#include <stdbool.h>
 
 #define WORD_MAX_LENGTH 50
 
@@ -9,21 +9,21 @@ enum WHERE_TO_ADD_NODE { TO_LEFT = 1, TO_RIGHT = -1, THE_SAME = 0 };
 
 typedef struct
 {
-	char word[WORD_MAX_LENGTH];
-	int count;
-}item;
+    char word[WORD_MAX_LENGTH];
+    int count;
+} item;
 
 typedef struct Node
 {
-	item node_item;
-	struct Node * left;
-	struct Node * right;
-}node;
+    item node_item;
+    struct Node * left;
+    struct Node * right;
+} node;
 
 typedef struct
 {
-	node * root;
-}tree;
+    node * root;
+} tree;
 
 void initialize_tree(tree * ptree);
 

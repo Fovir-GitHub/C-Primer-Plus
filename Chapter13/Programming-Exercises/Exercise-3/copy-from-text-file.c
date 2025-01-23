@@ -5,44 +5,43 @@
 // to convert all text to uppercase as it’s written to the output file.
 // Use standard I / O and the text mode.
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<ctype.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define SIZE 80
 
 int main(void)
 {
-	FILE* in, * out;
-	char source_file[SIZE];
-	char output_file[SIZE];
-	int ch;
+    FILE *in, *out;
+    char source_file[SIZE];
+    char output_file[SIZE];
+    int ch;
 
-	// Get source file name.
-	puts("Please enter the source file name:");
-	scanf("%s", source_file);
+    // Get source file name.
+    puts("Please enter the source file name:");
+    scanf("%s", source_file);
 
-	// If can not open the source file.
-	if ((in = fopen(source_file, "r")) == NULL)
-	{
-		fprintf(stderr, "Can't open %s", source_file);
-		exit(EXIT_FAILURE);
-	}
+    // If can not open the source file.
+    if ((in = fopen(source_file, "r")) == NULL)
+    {
+        fprintf(stderr, "Can't open %s", source_file);
+        exit(EXIT_FAILURE);
+    }
 
-	// Get output file name.
-	puts("Please enter the output file name:");
-	scanf("%s", output_file);
-	// Open the output file.
-	out = fopen(output_file, "w");
+    // Get output file name.
+    puts("Please enter the output file name:");
+    scanf("%s", output_file);
+    // Open the output file.
+    out = fopen(output_file, "w");
 
-	// Start copy.
-	while ((ch = getc(in)) != EOF)
-		putc(toupper(ch), out);
-	puts("Done!");
+    // Start copy.
+    while ((ch = getc(in)) != EOF) putc(toupper(ch), out);
+    puts("Done!");
 
-	// Close files.
-	fclose(in);
-	fclose(out);
+    // Close files.
+    fclose(in);
+    fclose(out);
 
-	return 0;
+    return 0;
 }

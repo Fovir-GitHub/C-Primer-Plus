@@ -1,50 +1,50 @@
-#include<stdio.h>
-#include<math.h>
+#include <math.h>
+#include <stdio.h>
 
-#define RAD_TO_DEG (180/(4*atan(1)))
+#define RAD_TO_DEG (180 / (4 * atan(1)))
 
 typedef struct polar_v
 {
-	double magnitude;
-	double angle;
-}Polar_V;
+    double magnitude;
+    double angle;
+} Polar_V;
 
 typedef struct rect_v
 {
-	double x;
-	double y;
-}Rect_V;
+    double x;
+    double y;
+} Rect_V;
 
 Polar_V rect_to_polar(Rect_V);
 
 int main(void)
 {
-	Rect_V input;
-	Polar_V result;
+    Rect_V input;
+    Polar_V result;
 
-	puts("Enter x and y coordinates; enter q to quit:");
+    puts("Enter x and y coordinates; enter q to quit:");
 
-	while (scanf("%lf %lf", &input.x, &input.y) == 2)
-	{
-		result = rect_to_polar(input);
-		printf("magnitude = %0.2f, angle = %0.2f\n",
-			result.magnitude, result.angle);
-	}
+    while (scanf("%lf %lf", &input.x, &input.y) == 2)
+    {
+        result = rect_to_polar(input);
+        printf("magnitude = %0.2f, angle = %0.2f\n", result.magnitude,
+               result.angle);
+    }
 
-	puts("Bye.");
+    puts("Bye.");
 
-	return 0;
+    return 0;
 }
 
 Polar_V rect_to_polar(Rect_V rv)
 {
-	Polar_V pv;
-	pv.magnitude = sqrt(rv.x * rv.x + rv.y * rv.y);
+    Polar_V pv;
+    pv.magnitude = sqrt(rv.x * rv.x + rv.y * rv.y);
 
-	if (pv.magnitude == 0)
-		pv.angle = 0.0;
-	else
-		pv.angle = RAD_TO_DEG * atan2(rv.y, rv.x);
+    if (pv.magnitude == 0)
+        pv.angle = 0.0;
+    else
+        pv.angle = RAD_TO_DEG * atan2(rv.y, rv.x);
 
-	return pv;
+    return pv;
 }

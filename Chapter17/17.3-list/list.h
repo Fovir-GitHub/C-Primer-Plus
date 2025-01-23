@@ -1,25 +1,25 @@
 #ifndef _LIST_H_
 #define _LIST_H_
 
-#include<stdbool.h>
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define TSIZE 45
 
 typedef struct _FILM_
 {
-	char title[TSIZE];
-	int rating;
-}film;
+    char title[TSIZE];
+    int rating;
+} film;
 
 typedef film Item;
 
 typedef struct node
 {
-	Item item;
-	struct node * next;
-}Node;
+    Item item;
+    struct node * next;
+} Node;
 
 typedef Node * List;
 

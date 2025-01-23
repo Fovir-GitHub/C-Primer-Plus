@@ -1,40 +1,39 @@
-#include<stdio.h>
-#include"names_st.h"
+#include "names_st.h"
+#include <stdio.h>
 
 void get_names(names * pn)
 {
-	printf("Please enter your first name: ");
-	s_gets(pn->first, SLEN);
+    printf("Please enter your first name: ");
+    s_gets(pn->first, SLEN);
 
-	printf("Please enter your last name: ");
-	s_gets(pn->last, SLEN);
+    printf("Please enter your last name: ");
+    s_gets(pn->last, SLEN);
 
-	return;
+    return;
 }
 
 void show_names(const names * pn)
 {
-	printf("%s %s", pn->first, pn->last);
+    printf("%s %s", pn->first, pn->last);
 
-	return;
+    return;
 }
 
 char * s_gets(char * st, int n)
 {
-	char * ret_val;
-	char * find;
+    char * ret_val;
+    char * find;
 
-	ret_val = fgets(st, n, stdin);
+    ret_val = fgets(st, n, stdin);
 
-	if (ret_val)
-	{
-		find = strchr(ret_val, '\n');
-		if (find)
-			*find = '\0';
-		else
-			while (getchar() != '\n')
-				continue;
-	}
+    if (ret_val)
+    {
+        find = strchr(ret_val, '\n');
+        if (find)
+            *find = '\0';
+        else
+            while (getchar() != '\n') continue;
+    }
 
-	return ret_val;
+    return ret_val;
 }
