@@ -32,7 +32,7 @@ typedef struct _NAME_
 
 typedef struct _STUDENT_
 {
-    name Name;
+    name  Name;
     float Grade[GRADE];
     float AverageGrade;
 } student;

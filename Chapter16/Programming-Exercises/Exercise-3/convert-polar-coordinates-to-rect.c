@@ -25,12 +25,12 @@ typedef struct _RECT_COORDINATE_
 } rect_coordinate;
 
 rect_coordinate convert_polar_to_rect(const polar_coordinate * pc);
-void show_rect_coordinate(const rect_coordinate * rc);
+void            show_rect_coordinate(const rect_coordinate * rc);
 
 int main(void)
 {
     polar_coordinate user_input;
-    rect_coordinate output;
+    rect_coordinate  output;
 
     puts("Please enter r and angle:");
     while (scanf("%lf %lf", &user_input.r, &user_input.angle) == 2)

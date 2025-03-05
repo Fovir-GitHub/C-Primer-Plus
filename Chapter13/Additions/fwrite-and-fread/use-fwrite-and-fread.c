@@ -10,7 +10,7 @@ int main(void)
     FILE *out, *in;
 
     // Use fwrite().
-    char * str = "This is a test.";
+    char * str    = "This is a test.";
     double number = (double) 1 / 3;
 
     // Open output file.
@@ -24,7 +24,7 @@ int main(void)
     fclose(out);
 
     // Use fread().
-    char read_str[SIZE];
+    char   read_str[SIZE];
     double num;
 
     // Open file.

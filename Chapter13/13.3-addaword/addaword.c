@@ -9,7 +9,7 @@
 int main(void)
 {
     FILE * fp;
-    char words[MAX];
+    char   words[MAX];
 
     if ((fp = fopen("wordy.txt", "a+")) == NULL)
     {

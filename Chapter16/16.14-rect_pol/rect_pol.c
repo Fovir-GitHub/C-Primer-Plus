@@ -19,7 +19,7 @@ Polar_V rect_to_polar(Rect_V);
 
 int main(void)
 {
-    Rect_V input;
+    Rect_V  input;
     Polar_V result;
 
     puts("Enter x and y coordinates; enter q to quit:");

@@ -10,6 +10,6 @@ struct names_st
 
 typedef struct names_st names;
 
-void get_names(names *);
-void show_names(const names *);
+void   get_names(names *);
+void   show_names(const names *);
 char * s_gets(char * st, int n);

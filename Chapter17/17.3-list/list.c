@@ -16,7 +16,7 @@ bool ListIsEmpty(const List * plist)
 bool ListIsFull(const List * plist)
 {
     Node * pt;
-    bool full;
+    bool   full;
 
     pt = (Node *) malloc(sizeof(Node));
     if (pt == NULL)
@@ -31,7 +31,7 @@ bool ListIsFull(const List * plist)
 unsigned int ListItemCount(const List * plist)
 {
     unsigned int count = 0;
-    Node * pnode = *plist;
+    Node *       pnode = *plist;
 
     while (pnode)
     {

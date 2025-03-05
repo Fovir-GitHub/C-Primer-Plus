@@ -12,9 +12,9 @@ char * s_gets(char * st, int n);
 
 int main(void)
 {
-    char choice[LEN];
+    char         choice[LEN];
     enum spectum color;
-    bool color_is_found = false;
+    bool         color_is_found = false;
 
     puts("Enter a color (empty line to quit):");
     while (s_gets(choice, LEN) != NULL && choice[0] != '\0')

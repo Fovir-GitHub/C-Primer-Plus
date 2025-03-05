@@ -8,8 +8,8 @@ char * s_gets(char * st, int n);
 
 struct book
 {
-    char title[MAXTITL];
-    char author[MAXAUTL];
+    char  title[MAXTITL];
+    char  author[MAXAUTL];
     float value;
 };
 

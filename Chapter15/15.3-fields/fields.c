@@ -21,10 +21,10 @@ const char * colors[8] = {"black", "red",     "green", "yellow",
 
 struct box_props
 {
-    bool opaque : 1;
+    bool         opaque : 1;
     unsigned int fill_color : 3;
     unsigned int : 4;
-    bool show_border : 1;
+    bool         show_border : 1;
     unsigned int border_color : 3;
     unsigned int border_style : 2;
     unsigned int : 2;
@@ -39,8 +39,8 @@ int main(void)
     printf("Original box settings:\n");
     show_settings(&box);
 
-    box.opaque = false;
-    box.fill_color = WHITE;
+    box.opaque       = false;
+    box.fill_color   = WHITE;
     box.border_color = MAGENTA;
     box.border_style = SOLID;
     printf("\nMondified box settings:\n");

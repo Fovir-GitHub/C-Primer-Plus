@@ -25,9 +25,9 @@ int where_to_add_new_node(node * original_node, node * new_node)
 
 bool add_item_to_tree(item new_item, tree * ptree)
 {
-    node * new_node = (node *) malloc(sizeof(node));
+    node *  new_node    = (node *) malloc(sizeof(node));
     node ** father_node = &ptree->root;
-    int new_node_position;
+    int     new_node_position;
 
     if (!new_node) /* the node is NULL */
         return false;

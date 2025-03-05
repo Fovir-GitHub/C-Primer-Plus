@@ -8,10 +8,10 @@
 
 int main(void)
 {
-    char file[SLEN];
-    char ch;
+    char   file[SLEN];
+    char   ch;
     FILE * fp;
-    long count, last;
+    long   count, last;
 
     puts("Enter the name of the file to be processed:");
     scanf("%80s", file);

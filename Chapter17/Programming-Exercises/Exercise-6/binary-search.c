@@ -12,8 +12,8 @@
 
 void generate_data(int data[], int n);
 void output_data(int data[], int n);
-int binary_search(int data[], int element_number, int number);
-int my_compare(const void * a, const void * b);
+int  binary_search(int data[], int element_number, int number);
+int  my_compare(const void * a, const void * b);
 
 int main(void)
 {
@@ -82,7 +82,7 @@ int binary_search(int data[], int element_number, int number)
 
 int my_compare(const void * a, const void * b)
 {
-    const int * first = (const int *) a;
+    const int * first  = (const int *) a;
     const int * second = (const int *) b;
 
     if (*first > *second)

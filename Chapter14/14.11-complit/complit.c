@@ -5,15 +5,15 @@
 
 struct book
 {
-    char title[MAXTITL];
-    char author[MAXAUTL];
+    char  title[MAXTITL];
+    char  author[MAXAUTL];
     float value;
 };
 
 int main(void)
 {
     struct book readfirst;
-    int score;
+    int         score;
 
     printf("Enter test score: ");
     scanf("%d", &score);

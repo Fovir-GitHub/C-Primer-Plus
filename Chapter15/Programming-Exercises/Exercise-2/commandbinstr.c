@@ -10,17 +10,17 @@
 
 const static int Size = CHAR_BIT * sizeof(int);
 
-int BinaryString2Int(const char * str);
+int    BinaryString2Int(const char * str);
 char * Int2BinaryString(int n, char * ps);
-void ShowBinaryString(const char * str);
+void   ShowBinaryString(const char * str);
 
 int main(int argc, char * argv[])
 {
-    char BinaryString[Size + 1];
-    char * First = argv[1];
+    char   BinaryString[Size + 1];
+    char * First  = argv[1];
     char * Second = argv[2];
 
-    int FirstNumber = BinaryString2Int(First);
+    int FirstNumber  = BinaryString2Int(First);
     int SecondNumber = BinaryString2Int(Second);
 
     printf("~%d:\n", FirstNumber);
@@ -54,7 +54,7 @@ int main(int argc, char * argv[])
 
 int BinaryString2Int(const char * str)
 {
-    int Sum = 0;
+    int Sum    = 0;
     int Length = strlen(str);
 
     for (int i = 0; i < Length; i++) Sum = (Sum <<= 1) + (str[i] - '0');

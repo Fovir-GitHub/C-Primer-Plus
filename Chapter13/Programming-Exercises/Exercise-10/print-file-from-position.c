@@ -14,9 +14,9 @@
 int main(void)
 {
     FILE * fp;
-    char file[SIZE];
-    long pos = 0;
-    int ch;
+    char   file[SIZE];
+    long   pos = 0;
+    int    ch;
 
     // Ask for file position.
     puts("Please enter the file position:");

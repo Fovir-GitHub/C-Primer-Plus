@@ -10,15 +10,15 @@
 #include <stdio.h>
 
 unsigned int rotate(unsigned int x, int num);
-char * itobs(int, char *);
-void show_bstr(const char *);
-void shownuminbin(int x);
+char *       itobs(int, char *);
+void         show_bstr(const char *);
+void         shownuminbin(int x);
 
 int main(void)
 {
-    char bin_str[CHAR_BIT * sizeof(int) + 1];
+    char         bin_str[CHAR_BIT * sizeof(int) + 1];
     unsigned int x;
-    int num;
+    int          num;
     unsigned int result;
 
     while (scanf("%u %d", &x, &num) == 2)
@@ -49,7 +49,7 @@ void shownuminbin(int x)
 
 char * itobs(int n, char * ps)
 {
-    int i;
+    int              i;
     const static int size = CHAR_BIT * sizeof(unsigned int);
 
     for (i = size - 1; i >= 0; i--, n >>= 1) ps[i] = (01 & n) + '0';

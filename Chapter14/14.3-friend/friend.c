@@ -16,9 +16,9 @@ struct names
 struct guy
 {
     struct names handle;
-    char favfood[LEN];
-    char job[LEN];
-    float income;
+    char         favfood[LEN];
+    char         job[LEN];
+    float        income;
 };
 
 int main(void)

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void showmovies(Item item);
+void   showmovies(Item item);
 char * s_gets(char * st, int n);
 
 int main(void)

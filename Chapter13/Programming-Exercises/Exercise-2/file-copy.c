@@ -11,7 +11,7 @@
 int main(int argc, char * argv[])
 {
     FILE *in, *out;
-    int ch;
+    int   ch;
 
     // If the arument is wrong.
     if (argc != 2)

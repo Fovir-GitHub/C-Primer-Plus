@@ -7,12 +7,12 @@ struct namect
 {
     char fname[NLEN];
     char lname[NLEN];
-    int letters;
+    int  letters;
 };
 
-void getinfo(struct namect *);
-void makeinfo(struct namect *);
-void showinfo(const struct namect *);
+void   getinfo(struct namect *);
+void   makeinfo(struct namect *);
+void   showinfo(const struct namect *);
 char * s_gets(char * st, int n);
 
 int main(void)

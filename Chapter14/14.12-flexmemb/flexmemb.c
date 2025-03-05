@@ -13,11 +13,11 @@ void showFlex(const struct flex * p);
 int main(void)
 {
     struct flex *pf1, *pf2;
-    int n = 5;
-    int i;
-    int tot = 0;
+    int          n = 5;
+    int          i;
+    int          tot = 0;
 
-    pf1 = malloc(sizeof(struct flex) + n * sizeof(double));
+    pf1        = malloc(sizeof(struct flex) + n * sizeof(double));
     pf1->count = n;
     for (i = 0; i < n; i++)
     {
@@ -27,9 +27,9 @@ int main(void)
     pf1->average = tot / n;
     showFlex(pf1);
 
-    n = 9;
-    tot = 0;
-    pf2 = malloc(sizeof(struct flex) + n * sizeof(double));
+    n          = 9;
+    tot        = 0;
+    pf2        = malloc(sizeof(struct flex) + n * sizeof(double));
     pf2->count = n;
     for (i = 0; i < n; i++)
     {

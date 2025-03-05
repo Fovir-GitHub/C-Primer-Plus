@@ -17,9 +17,9 @@
 int main(int argc, char * argv[])
 {
     FILE * fp;
-    int ch;
-    int origin;
-    int count = 0;
+    int    ch;
+    int    origin;
+    int    count = 0;
 
     // If arguments less than 2
     if (argc < 2)

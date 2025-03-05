@@ -18,7 +18,7 @@
 void delay(double seconds)
 {
     clock_t start_time = clock();
-    double elapsed_time;
+    double  elapsed_time;
     do
     {
         elapsed_time = (double) (clock() - start_time) / CLOCKS_PER_SEC;
@@ -38,7 +38,7 @@ int main(void)
               1000000); // Assuming loop_time is in microseconds
 
         clock_t next_time = clock();
-        double time_difference =
+        double  time_difference =
             (double) (next_time - first_time) / CLOCKS_PER_SEC;
 
         printf("Time difference is %f seconds\n", time_difference);

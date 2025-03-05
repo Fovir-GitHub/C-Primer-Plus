@@ -14,9 +14,9 @@
 int main(void)
 {
     FILE *in, *out;
-    char source_file[SIZE];
-    char output_file[SIZE];
-    int ch;
+    char  source_file[SIZE];
+    char  output_file[SIZE];
+    int   ch;
 
     // Get source file name.
     puts("Please enter the source file name:");

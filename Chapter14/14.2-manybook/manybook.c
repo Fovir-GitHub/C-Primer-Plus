@@ -9,16 +9,16 @@ char * s_gets(char * st, int n);
 
 struct book
 {
-    char title[MAXTITL];
-    char author[MAXAUTL];
+    char  title[MAXTITL];
+    char  author[MAXAUTL];
     float value;
 };
 
 int main(void)
 {
     struct book library[MAXBKS];
-    int count = 0;
-    int index;
+    int         count = 0;
+    int         index;
 
     printf("Please enter the book title.\n");
     printf("Press [enter] at the start of a line to stop.\n");

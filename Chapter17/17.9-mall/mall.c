@@ -10,18 +10,18 @@ Item customertime(long when);
 
 int main(void)
 {
-    Queue line;
-    Item temp;
-    int hours;
-    int perhour;
-    long cycle, cyclelimit;
-    long turnaways = 0;
-    long customers = 0;
-    long served = 0;
-    long sum_line = 0;
-    int wait_time = 0;
+    Queue  line;
+    Item   temp;
+    int    hours;
+    int    perhour;
+    long   cycle, cyclelimit;
+    long   turnaways = 0;
+    long   customers = 0;
+    long   served    = 0;
+    long   sum_line  = 0;
+    int    wait_time = 0;
     double min_per_cust;
-    long line_wait = 0;
+    long   line_wait = 0;
 
     InitializeQueue(&line);
     srand((unsigned int) time(0));
@@ -88,7 +88,7 @@ Item customertime(long when)
 {
     Item cust;
     cust.processtime = rand() % 3 + 1;
-    cust.arrive = when;
+    cust.arrive      = when;
 
     return cust;
 }

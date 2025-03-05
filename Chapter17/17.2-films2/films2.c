@@ -6,8 +6,8 @@
 
 typedef struct _FILM_
 {
-    char title[TSIZE];
-    int rating;
+    char            title[TSIZE];
+    int             rating;
     struct _FILM_ * next;
 } film;
 
@@ -16,8 +16,8 @@ char * s_gets(char * st, int n);
 int main(void)
 {
     film * head = NULL;
-    film *prev, *current;
-    char input[TSIZE];
+    film * prev, *current;
+    char   input[TSIZE];
 
     puts("Enter first movie title:");
     while (s_gets(input, TSIZE) && input[0] != '\0')

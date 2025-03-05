@@ -4,9 +4,9 @@
 
 struct funds
 {
-    char bank[FUNDLEN];
+    char   bank[FUNDLEN];
     double bankfund;
-    char save[FUNDLEN];
+    char   save[FUNDLEN];
     double savefund;
 };
 

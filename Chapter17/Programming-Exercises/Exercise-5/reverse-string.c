@@ -10,7 +10,7 @@
 int main(void)
 {
     stack string;
-    item ch;
+    item  ch;
 
     init_stack(&string);
 

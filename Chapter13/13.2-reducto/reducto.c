@@ -6,9 +6,9 @@
 int main(int argc, char * argv[])
 {
     FILE *in, *out;
-    int ch;
-    char name[LEN];
-    int count = 0;
+    int   ch;
+    char  name[LEN];
+    int   count = 0;
 
     if (argc < 2)
     {

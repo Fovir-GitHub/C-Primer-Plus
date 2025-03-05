@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 char * itobs(int, char *);
-void show_bstr(const char *);
+void   show_bstr(const char *);
 
 int main(void)
 {
     char bin_str[CHAR_BIT * sizeof(int) + 1];
-    int number;
+    int  number;
 
     puts("Enter integers and see them in binary.");
     puts("Non-numeric input terminates program.");
@@ -27,7 +27,7 @@ int main(void)
 
 char * itobs(int n, char * ps)
 {
-    int i;
+    int              i;
     const static int size = CHAR_BIT * sizeof(int);
 
     for (i = size - 1; i >= 0; i--, n >>= 1) ps[i] = (01 & n) + '0';

@@ -18,7 +18,7 @@
 int main(int argc, char * argv[])
 {
     FILE * fp;
-    char temp[MAX];
+    char   temp[MAX];
 
     // If the number of arguments is wrong.
     if (argc != 3)

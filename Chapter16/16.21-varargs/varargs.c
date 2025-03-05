@@ -21,8 +21,8 @@ int main(void)
 double sum(int lim, ...)
 {
     va_list ap;
-    double tot = 0;
-    int i;
+    double  tot = 0;
+    int     i;
 
     va_start(ap, lim);
 

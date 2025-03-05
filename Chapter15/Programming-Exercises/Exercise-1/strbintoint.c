@@ -22,7 +22,7 @@ int main(void)
 int BinaryString2Int(const char * str)
 {
     int Length = strlen(str);
-    int sum = 0;
+    int sum    = 0;
 
     for (int i = 0; i < Length; i++) sum = (sum <<= 1) + (str[i] - '0');
     return sum;

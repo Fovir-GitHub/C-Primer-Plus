@@ -17,7 +17,7 @@ typedef char item;
 
 typedef struct Node
 {
-    item node_item;
+    item          node_item;
     struct Node * front;
     struct Node * next;
 } node;

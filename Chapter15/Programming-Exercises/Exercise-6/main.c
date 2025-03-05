@@ -17,7 +17,7 @@
 int main(void)
 {
     font MyFont = {1, 12, 0, false, false, false};
-    int Choice;
+    int  Choice;
 
     while (true)
     {

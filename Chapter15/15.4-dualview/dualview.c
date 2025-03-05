@@ -37,10 +37,10 @@ const char * colors[8] = {"black", "red",     "green", "yellow",
 
 typedef struct _BOX_PROPS_
 {
-    bool opaque : 1;
+    bool         opaque : 1;
     unsigned int fill_color : 3;
     unsigned int : 4;
-    bool show_border : 1;
+    bool         show_border : 1;
     unsigned int border_color : 3;
     unsigned int border_style : 2;
     unsigned int : 2;
@@ -48,18 +48,18 @@ typedef struct _BOX_PROPS_
 
 union Views
 {
-    box_props st_view;
+    box_props      st_view;
     unsigned short us_view;
 };
 
-void show_settings(const box_props * pb);
-void show_settings1(unsigned short);
+void   show_settings(const box_props * pb);
+void   show_settings1(unsigned short);
 char * itobs(int n, char * ps);
 
 int main(void)
 {
     union Views box = {{true, YELLOW, true, GREEN, DASHED}};
-    char bin_str[8 * sizeof(unsigned int) + 1];
+    char        bin_str[8 * sizeof(unsigned int) + 1];
 
     printf("Original box settings:\n");
     show_settings(&box.st_view);
@@ -137,7 +137,7 @@ void show_settings1(unsigned short us)
 
 char * itobs(int n, char * ps)
 {
-    int i;
+    int              i;
     static const int size = CHAR_BIT * sizeof(int) + 1;
 
     for (i = size - 1; i >= 0; i--, n >>= 1) ps[i] = (n & 01) + '0';

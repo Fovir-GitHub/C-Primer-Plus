@@ -5,13 +5,13 @@
 #define LEN 81
 
 char * s_gets(char * st, int n);
-char showmenu(void);
-void eatline(void);
-void show(void (*fp)(char *), char * str);
-void ToUpper(char *);
-void ToLower(char *);
-void Transpose(char *);
-void Dummy(char *);
+char   showmenu(void);
+void   eatline(void);
+void   show(void (*fp)(char *), char * str);
+void   ToUpper(char *);
+void   ToLower(char *);
+void   Transpose(char *);
+void   Dummy(char *);
 
 int main(void)
 {

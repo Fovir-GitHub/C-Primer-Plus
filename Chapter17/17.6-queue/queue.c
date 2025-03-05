@@ -20,7 +20,7 @@ static void CopyToItem(Node * pn, Item * pi)
 void InitializeQueue(Queue * pq)
 {
     pq->front = pq->rear = NULL;
-    pq->items = 0;
+    pq->items            = 0;
 
     return;
 }
@@ -73,7 +73,7 @@ bool DeQueue(Item * pitem, Queue * pq)
         return false;
 
     CopyToItem(pq->front, pitem);
-    pt = pq->front;
+    pt        = pq->front;
     pq->front = pq->front->next;
     free(pt);
     pq->items--;

@@ -4,8 +4,8 @@
 int main(void)
 {
     Queue line;
-    Item temp;
-    char ch;
+    Item  temp;
+    char  ch;
 
     InitializeQueue(&line);
     puts("Testing the Queue interface. Type a to add a value,");

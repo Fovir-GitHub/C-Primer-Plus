@@ -14,12 +14,12 @@
 
 int main(void)
 {
-    float x = 45.0f;
-    double xx = 45.0;
+    float       x   = 45.0f;
+    double      xx  = 45.0;
     long double xxx = 45.0L;
 
-    long double y = SQRT(x);
-    long double yy = SQRT(xx);
+    long double y   = SQRT(x);
+    long double yy  = SQRT(xx);
     long double yyy = SQRT(xxx);
 
     printf("%.17Lf\n", y);
@@ -27,7 +27,7 @@ int main(void)
     printf("%.17Lf\n", yyy);
 
     int i = 45;
-    yy = SQRT(i);
+    yy    = SQRT(i);
     printf("%.17Lf\n", yy);
     yyy = SIN(xxx);
     printf("%.17Lf\n", yyy);

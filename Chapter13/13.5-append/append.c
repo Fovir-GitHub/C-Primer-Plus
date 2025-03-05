@@ -5,16 +5,16 @@
 #define BUFSIZE 4096
 #define SLEN 81
 
-void append(FILE * source, FILE * dest);
+void   append(FILE * source, FILE * dest);
 char * s_gets(char * st, int n);
 
 int main(void)
 {
     FILE *fa, *fs;
-    int files = 0;
-    char file_app[SLEN];
-    char file_src[SLEN];
-    int ch;
+    int   files = 0;
+    char  file_app[SLEN];
+    char  file_src[SLEN];
+    int   ch;
 
     puts("Enter name of destination file:");
     s_gets(file_app, SLEN);
@@ -67,7 +67,7 @@ int main(void)
 
 void append(FILE * source, FILE * dest)
 {
-    size_t bytes;
+    size_t      bytes;
     static char temp[BUFSIZE];
 
     while ((bytes = fread(temp, sizeof(char), BUFSIZE, source)) > 0)

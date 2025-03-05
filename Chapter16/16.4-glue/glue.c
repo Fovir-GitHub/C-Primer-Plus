@@ -7,7 +7,7 @@ int main(void)
 {
     int XNAME(1) = 14;
     int XNAME(2) = 20;
-    int x3 = 30;
+    int x3       = 30;
     PRINT_XN(1);
     PRINT_XN(2);
     PRINT_XN(3);

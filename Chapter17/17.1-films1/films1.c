@@ -7,7 +7,7 @@
 typedef struct _FILM_
 {
     char title[TSIZE];
-    int raing;
+    int  raing;
 } film;
 
 char * s_gets(char * st, int n);
@@ -15,8 +15,8 @@ char * s_gets(char * st, int n);
 int main(void)
 {
     film movies[FMAX];
-    int i = 0;
-    int j;
+    int  i = 0;
+    int  j;
 
     puts("Enter first movie title:");
     while (i < FMAX && s_gets(movies[i].title, TSIZE) != NULL &&

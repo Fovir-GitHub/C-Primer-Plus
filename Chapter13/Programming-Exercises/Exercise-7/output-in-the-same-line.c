@@ -14,7 +14,7 @@
 int main(int argc, char * argv[])
 {
     FILE *first, *second;
-    char ch = 0;
+    char  ch = 0;
 
     // If arguments are error.
     if (argc != 3)

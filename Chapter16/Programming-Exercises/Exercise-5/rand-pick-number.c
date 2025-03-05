@@ -58,7 +58,7 @@ void randomly_pick_numbers(int array[], int array_size, int pick_number)
     bool record[array_size];
     memset(record, false, sizeof(record));
     int pick_position = 0;
-    int count = 0;
+    int count         = 0;
 
     for (int i = 0; i < pick_number; i++)
     {

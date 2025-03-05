@@ -10,13 +10,13 @@ typedef struct pair
 } Pair;
 
 static Trnode * MakeNode(const Item * pi);
-static bool ToLeft(const Item * i1, const Item * i2);
-static bool ToRight(const Item * i1, const Item * i2);
-static void AddNode(Trnode * new_node, Trnode * root);
-static void InOrder(const Trnode * root, void (*pfun)(Item item));
-static Pair SeekItem(const Item * pi, const Tree * ptree);
-static void DeleteNode(Trnode ** ptr);
-static void DeleteAllNodes(Trnode * root);
+static bool     ToLeft(const Item * i1, const Item * i2);
+static bool     ToRight(const Item * i1, const Item * i2);
+static void     AddNode(Trnode * new_node, Trnode * root);
+static void     InOrder(const Trnode * root, void (*pfun)(Item item));
+static Pair     SeekItem(const Item * pi, const Tree * ptree);
+static void     DeleteNode(Trnode ** ptr);
+static void     DeleteAllNodes(Trnode * root);
 
 void InitializeTree(Tree * ptree)
 {
@@ -119,8 +119,8 @@ static Trnode * MakeNode(const Item * pi)
     new_node = (Trnode *) malloc(sizeof(Trnode));
     if (new_node)
     {
-        new_node->item = *pi;
-        new_node->left = NULL;
+        new_node->item  = *pi;
+        new_node->left  = NULL;
         new_node->right = NULL;
     }
 
@@ -192,7 +192,7 @@ static Pair SeekItem(const Item * pi, const Tree * ptree)
 {
     Pair look;
     look.parent = NULL;
-    look.child = ptree->root;
+    look.child  = ptree->root;
 
     if (look.child == NULL)
         return look;
@@ -202,12 +202,12 @@ static Pair SeekItem(const Item * pi, const Tree * ptree)
         if (ToLeft(pi, &(look.child->item)))
         {
             look.parent = look.child;
-            look.child = look.child->left;
+            look.child  = look.child->left;
         }
         else if (ToRight(pi, &(look.child->item)))
         {
             look.parent = look.child;
-            look.child = look.child->right;
+            look.child  = look.child->right;
         }
         else
             break;
@@ -235,8 +235,8 @@ static void DeleteNode(Trnode ** ptr)
     {
         for (temp = (*ptr)->left; temp->right; temp = temp->right) continue;
         temp->right = (*ptr)->right;
-        temp = *ptr;
-        *ptr = (*ptr)->left;
+        temp        = *ptr;
+        *ptr        = (*ptr)->left;
         free(temp);
     }
     return;

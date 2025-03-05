@@ -10,8 +10,8 @@ static_assert(sizeof(double) == 2 * sizeof(int), "double not twice int size");
 
 int main(void)
 {
-    int values[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int target[SIZE];
+    int    values[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int    target[SIZE];
     double curious[SIZE / 2] = {2.0, 2.0e5, 2.0e10, 2.0e20, 5.0e30};
 
     puts("memcpy() used:");

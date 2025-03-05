@@ -5,12 +5,12 @@
 
 int main(void)
 {
-    double numbers[ARSIZE];
-    double value;
+    double       numbers[ARSIZE];
+    double       value;
     const char * file = "numbers.dat";
-    int i;
-    long pos;
-    FILE * iofile;
+    int          i;
+    long         pos;
+    FILE *       iofile;
 
     for (i = 0; i < ARSIZE; i++) numbers[i] = 100.0 * i + 1.0 / (i + 1);
 

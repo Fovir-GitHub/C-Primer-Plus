@@ -8,8 +8,8 @@
 
 struct book
 {
-    char title[MAXTITL];
-    char author[MAXAUTL];
+    char  title[MAXTITL];
+    char  author[MAXAUTL];
     float value;
 };
 
@@ -18,10 +18,10 @@ char * s_gets(char * st, int n);
 int main(void)
 {
     struct book library[MAXBKS];
-    int count = 0;
-    int index, filecount;
-    FILE * pbooks;
-    int size = sizeof(struct book);
+    int         count = 0;
+    int         index, filecount;
+    FILE *      pbooks;
+    int         size = sizeof(struct book);
 
     if ((pbooks = fopen("book.dat", "a+b")) == NULL)
     {

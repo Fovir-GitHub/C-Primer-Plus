@@ -15,10 +15,10 @@
 
 struct Month
 {
-    int month_number;
+    int  month_number;
     char month_all[LEN];
     char month_abbr[LEN];
-    int day;
+    int  day;
 };
 
 int main(void)
@@ -31,11 +31,11 @@ int main(void)
         {9, "September", "Sep", 30}, {10, "October", "Oct", 31},
         {11, "November", "Nov", 30}, {12, "December", "Dec", 31}};
 
-    int day;
+    int  day;
     char user_month[LEN];
-    int month_num;
-    int year;
-    int result = 0;
+    int  month_num;
+    int  year;
+    int  result = 0;
 
     puts("Please enter the day:");
     scanf("%d", &day);
@@ -45,7 +45,7 @@ int main(void)
     while (scanf("%s", user_month) == 1)
     {
         bool correct = false;
-        int temp = 0;
+        int  temp    = 0;
 
         if (isdigit(user_month[0])) // input is digit.
         {
@@ -70,7 +70,7 @@ int main(void)
                     strcmp(user_month, month[i].month_all) == 0)
                 {
                     correct = true;
-                    temp = month[i].month_number;
+                    temp    = month[i].month_number;
                     break;
                 }
         }

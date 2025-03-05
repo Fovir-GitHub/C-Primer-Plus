@@ -2,13 +2,13 @@
 #include <stdio.h>
 
 char * itobs(int, char *);
-void show_bstr(const char *);
-int invert_end(int num, int bits);
+void   show_bstr(const char *);
+int    invert_end(int num, int bits);
 
 int main(void)
 {
     char bin_str[CHAR_BIT * sizeof(int) + 1];
-    int number;
+    int  number;
 
     puts("Enter integers and see them in binary.");
     puts("Non-numeric input terminates program.");
@@ -31,7 +31,7 @@ int main(void)
 
 char * itobs(int n, char * ps)
 {
-    int i;
+    int              i;
     static const int size = CHAR_BIT * sizeof(int);
 
     for (i = size - 1; i >= 0; i--, n >>= 1) ps[i] = (1 & n) + '0';
@@ -53,7 +53,7 @@ void show_bstr(const char * str)
 
 int invert_end(int num, int bits)
 {
-    int mask = 0;
+    int mask   = 0;
     int bitval = 1;
 
     while (bits-- > 0)

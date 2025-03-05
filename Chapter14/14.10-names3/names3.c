@@ -8,13 +8,13 @@ struct namect
 {
     char * fname;
     char * lname;
-    int letters;
+    int    letters;
 };
 
-void getinfo(struct namect *);
-void makeinfo(struct namect *);
-void showinfo(const struct namect *);
-void cleanup(struct namect *);
+void   getinfo(struct namect *);
+void   makeinfo(struct namect *);
+void   showinfo(const struct namect *);
+void   cleanup(struct namect *);
 char * s_gets(char * st, int n);
 
 int main(void)

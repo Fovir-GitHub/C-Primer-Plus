@@ -32,7 +32,7 @@
 
 typedef struct _SEAT_
 {
-    int IndentificationNumber;
+    int  IndentificationNumber;
     bool isAssigned;
 
     struct
@@ -42,7 +42,7 @@ typedef struct _SEAT_
     };
 } seat;
 
-int GetChoice(void);
+int  GetChoice(void);
 void EatLine(void);
 void InitSeats(seat st[], int n);
 void ShowEmptySeatsList(const seat st[], int n);
@@ -56,7 +56,7 @@ static int EmptySeatNumber = SEATNUMBER;
 int main(void)
 {
     seat Seats[SEATNUMBER];
-    int choice = 0;
+    int  choice = 0;
 
     InitSeats(Seats, SEATNUMBER);
 
@@ -128,13 +128,13 @@ void InitSeats(seat st[], int n)
     for (int i = 0; i < n; i++)
     {
         st[i].IndentificationNumber = i;
-        st[i].isAssigned = false;
+        st[i].isAssigned            = false;
     }
 
     // read from file.
     FILE * fp;
-    int seat_number;
-    int index = 0;
+    int    seat_number;
+    int    index = 0;
 
     fp = fopen("./seat.data", "r");
 
