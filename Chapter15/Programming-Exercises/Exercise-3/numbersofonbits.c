@@ -6,8 +6,7 @@
 
 int CountOnBits(int n);
 
-int main(void)
-{
+int main(void) {
     int n;
 
     while (scanf("%d", &n) == 1)
@@ -16,12 +15,10 @@ int main(void)
     return 0;
 }
 
-int CountOnBits(int n)
-{
+int CountOnBits(int n) {
     int Count = 0;
 
-    while (n)
-    {
+    while (n) {
         if (n & 1)
             Count++;
         n >>= 1;

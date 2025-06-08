@@ -15,31 +15,27 @@
 #include <stdio.h>
 #include <time.h>
 
-void delay(double seconds)
-{
+void delay(double seconds) {
     clock_t start_time = clock();
-    double  elapsed_time;
-    do
-    {
-        elapsed_time = (double) (clock() - start_time) / CLOCKS_PER_SEC;
+    double elapsed_time;
+    do {
+        elapsed_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
     } while (elapsed_time < seconds);
 }
 
-int main(void)
-{
+int main(void) {
     unsigned long long loop_time;
 
-    while (scanf("%llu", &loop_time) == 1)
-    {
+    while (scanf("%llu", &loop_time) == 1) {
         clock_t first_time = clock();
 
         // Use delay function to wait
-        delay((double) loop_time /
+        delay((double)loop_time /
               1000000); // Assuming loop_time is in microseconds
 
         clock_t next_time = clock();
-        double  time_difference =
-            (double) (next_time - first_time) / CLOCKS_PER_SEC;
+        double time_difference =
+            (double)(next_time - first_time) / CLOCKS_PER_SEC;
 
         printf("Time difference is %f seconds\n", time_difference);
     }

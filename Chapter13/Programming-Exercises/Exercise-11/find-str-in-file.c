@@ -15,21 +15,18 @@
 
 #define MAX 256
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]) {
     FILE * fp;
-    char   temp[MAX];
+    char temp[MAX];
 
     // If the number of arguments is wrong.
-    if (argc != 3)
-    {
+    if (argc != 3) {
         fprintf(stderr, "Usage: %s string filename.", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Check whether the file can be opened.
-    if ((fp = fopen(argv[2], "r")) == NULL)
-    {
+    if ((fp = fopen(argv[2], "r")) == NULL) {
         fprintf(stderr, "Can't open %s", argv[2]);
         exit(EXIT_FAILURE);
     }

@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
     double dx;
-    char   ca, cx;
+    char ca, cx;
     double dz;
-    char   cb;
+    char cb;
     char _Alignas(double) cz;
 
     printf("char alignment:   %zd\n", _Alignof(char));

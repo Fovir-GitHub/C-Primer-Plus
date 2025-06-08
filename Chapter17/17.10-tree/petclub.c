@@ -3,26 +3,23 @@
 #include <stdio.h>
 #include <string.h>
 
-char   menu(void);
-void   addpet(Tree * pt);
-void   droppet(Tree * pt);
-void   showpets(const Tree * pt);
-void   findpet(const Tree * pt);
-void   printitem(Item item);
-void   uppercase(char * str);
+char menu(void);
+void addpet(Tree * pt);
+void droppet(Tree * pt);
+void showpets(const Tree * pt);
+void findpet(const Tree * pt);
+void printitem(Item item);
+void uppercase(char * str);
 char * s_gets(char * st, int n);
 
-int main(void)
-{
+int main(void) {
     Tree pets;
     char choice;
 
     InitializeTree(&pets);
 
-    while ((choice = menu()) != 'q')
-    {
-        switch (choice)
-        {
+    while ((choice = menu()) != 'q') {
+        switch (choice) {
         case 'a':
             addpet(&pets);
             break;
@@ -49,8 +46,7 @@ int main(void)
     return 0;
 }
 
-char menu(void)
-{
+char menu(void) {
     int ch;
 
     puts("Nerfuille Pet Club Membership Program");
@@ -59,9 +55,9 @@ char menu(void)
     puts("n) number of pets     f) find pets");
     puts("d) delete a pet       q) quit");
 
-    while ((ch = getchar()) != EOF)
-    {
-        while (getchar() != '\n') continue;
+    while ((ch = getchar()) != EOF) {
+        while (getchar() != '\n')
+            continue;
         ch = tolower(ch);
         if (strchr("alrfndq", ch) == NULL)
             puts("Please enter an a,l,f,n,d or q:");
@@ -74,14 +70,12 @@ char menu(void)
     return ch;
 }
 
-void addpet(Tree * pt)
-{
+void addpet(Tree * pt) {
     Item temp;
 
     if (TreeIsFull(pt))
         puts("No room in the club!");
-    else
-    {
+    else {
         puts("Please enter name of pet:");
         s_gets(temp.petname, SLEN);
         puts("Please enter pet kind:");
@@ -94,12 +88,10 @@ void addpet(Tree * pt)
     return;
 }
 
-void droppet(Tree * pt)
-{
+void droppet(Tree * pt) {
     Item temp;
 
-    if (TreeIsempty(pt))
-    {
+    if (TreeIsempty(pt)) {
         puts("No entries!");
         return;
     }
@@ -120,8 +112,7 @@ void droppet(Tree * pt)
     return;
 }
 
-void showpets(const Tree * pt)
-{
+void showpets(const Tree * pt) {
     if (TreeIsempty(pt))
         puts("No entries!");
     else
@@ -130,12 +121,10 @@ void showpets(const Tree * pt)
     return;
 }
 
-void findpet(const Tree * pt)
-{
+void findpet(const Tree * pt) {
     Item temp;
 
-    if (TreeIsempty(pt))
-    {
+    if (TreeIsempty(pt)) {
         puts("No entries!");
         return;
     }
@@ -156,16 +145,13 @@ void findpet(const Tree * pt)
     return;
 }
 
-void printitem(Item item)
-{
+void printitem(Item item) {
     printf("Pet: %-19s  Kind: %-19s\n", item.petname, item.petkind);
     return;
 }
 
-void uppercase(char * str)
-{
-    while (*str)
-    {
+void uppercase(char * str) {
+    while (*str) {
         *str = toupper(*str);
         str++;
     }
@@ -173,17 +159,16 @@ void uppercase(char * str)
     return;
 }
 
-char * s_gets(char * st, int n)
-{
+char * s_gets(char * st, int n) {
     char * ret_val = fgets(st, n, stdin);
 
-    if (ret_val)
-    {
+    if (ret_val) {
         char * find = strchr(ret_val, '\n');
         if (find)
             *find = '\0';
         else
-            while (getchar() != '\n') continue;
+            while (getchar() != '\n')
+                continue;
     }
 
     return ret_val;

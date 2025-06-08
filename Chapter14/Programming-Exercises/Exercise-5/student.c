@@ -24,15 +24,13 @@
 #define GRADE 3
 #define CSIZE 4
 
-typedef struct _NAME_
-{
+typedef struct _NAME_ {
     char FirstName[NAMESIZE];
     char SecondName[NAMESIZE];
 } name;
 
-typedef struct _STUDENT_
-{
-    name  Name;
+typedef struct _STUDENT_ {
+    name Name;
     float Grade[GRADE];
     float AverageGrade;
 } student;
@@ -42,8 +40,7 @@ void GenerateAverageGrade(student stu[], int n);
 void PrintInformation(student stu[], int n);
 void PrintClassAverage(student stu[], int n);
 
-int main(void)
-{
+int main(void) {
     // freopen("./data.in", "r", stdin);
     student Student[CSIZE] = {{{"Smith", "Emily"}},
                               {{"Lee", "Alexander"}},
@@ -58,33 +55,30 @@ int main(void)
     return 0;
 }
 
-void GetScore(student stu[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
+void GetScore(student stu[], int n) {
+    for (int i = 0; i < n; i++) {
         printf("Please enter %s %s's grades:\n", stu[i].Name.FirstName,
                stu[i].Name.SecondName);
 
-        for (int j = 0; j < GRADE; j++) scanf("%f", &stu[i].Grade[j]);
+        for (int j = 0; j < GRADE; j++)
+            scanf("%f", &stu[i].Grade[j]);
     }
 
     return;
 }
 
-void GenerateAverageGrade(student stu[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        float sum = (float) 0;
-        for (int j = 0; j < GRADE; j++) sum += stu[i].Grade[j];
-        stu[i].AverageGrade = (float) sum / GRADE;
+void GenerateAverageGrade(student stu[], int n) {
+    for (int i = 0; i < n; i++) {
+        float sum = (float)0;
+        for (int j = 0; j < GRADE; j++)
+            sum += stu[i].Grade[j];
+        stu[i].AverageGrade = (float)sum / GRADE;
     }
 
     return;
 }
 
-void PrintInformation(student stu[], int n)
-{
+void PrintInformation(student stu[], int n) {
     for (int i = 0; i < n; i++)
         printf("%s %s: Chinese: %g, Math: %g, English: %g,"
                "Average score: %.1f\n",
@@ -93,16 +87,15 @@ void PrintInformation(student stu[], int n)
     return;
 }
 
-void PrintClassAverage(student stu[], int n)
-{
+void PrintClassAverage(student stu[], int n) {
     float sum;
     char * class[GRADE] = {"Chinese", "Math", "English"};
 
-    for (int i = 0; i < GRADE; i++)
-    {
-        sum = (float) 0;
-        for (int j = 0; j < n; j++) sum += stu[j].Grade[i];
-        printf("%s: %.1f\n", class[i], (float) sum / GRADE);
+    for (int i = 0; i < GRADE; i++) {
+        sum = (float)0;
+        for (int j = 0; j < n; j++)
+            sum += stu[j].Grade[i];
+        printf("%s: %.1f\n", class[i], (float)sum / GRADE);
     }
 
     return;

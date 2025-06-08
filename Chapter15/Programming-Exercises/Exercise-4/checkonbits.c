@@ -7,8 +7,7 @@
 
 bool thePositionisOn(int n, int position);
 
-int main(void)
-{
+int main(void) {
     int n, pos;
 
     while (scanf("%d %d", &n, &pos) == 2)
@@ -17,7 +16,4 @@ int main(void)
     return 0;
 }
 
-bool thePositionisOn(int n, int position)
-{
-    return (n & (1 << position));
-}
+bool thePositionisOn(int n, int position) { return (n & (1 << position)); }

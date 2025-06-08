@@ -7,22 +7,19 @@ const char * msgs[5] = {"    Thank you for the wonderful evening,",
                         "is a special kind of guy. We must get together",
                         "over a delicious ", "and have a few laughs"};
 
-struct names
-{
+struct names {
     char first[LEN];
     char last[LEN];
 };
 
-struct guy
-{
+struct guy {
     struct names handle;
-    char         favfood[LEN];
-    char         job[LEN];
-    float        income;
+    char favfood[LEN];
+    char job[LEN];
+    float income;
 };
 
-int main(void)
-{
+int main(void) {
     struct guy fellow = {
         {"Ewen", "villard"}, "grilled salmon", "personality coach", 68112.00};
 

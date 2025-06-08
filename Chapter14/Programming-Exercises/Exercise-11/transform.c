@@ -27,8 +27,7 @@ void transform(double source[], double target[], int number,
 void GenerateData(double arr[], int n);
 void OutputArray(double arr[], int n);
 
-int main(void)
-{
+int main(void) {
     const int GenerateNumber = 20;
     srand(time(NULL));
     double Source[SIZE];
@@ -43,20 +42,19 @@ int main(void)
 }
 
 void transform(double source[], double target[], int number,
-               double (*func)(double))
-{
-    for (int i = 0; i < number; i++) target[i] = func(source[i]);
+               double (*func)(double)) {
+    for (int i = 0; i < number; i++)
+        target[i] = func(source[i]);
     return;
 }
 
-void GenerateData(double arr[], int n)
-{
-    for (int i = 0; i < n; i++) arr[i] = (double) rand() / 123;
+void GenerateData(double arr[], int n) {
+    for (int i = 0; i < n; i++)
+        arr[i] = (double)rand() / 123;
     return;
 }
 
-void OutputArray(double arr[], int n)
-{
+void OutputArray(double arr[], int n) {
     for (int i = 1; i <= n; i++)
         printf("%lf%c", arr[i - 1], (i % 5 ? ' ' : '\n'));
     return;

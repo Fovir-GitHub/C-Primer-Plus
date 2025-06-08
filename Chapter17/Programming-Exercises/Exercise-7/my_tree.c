@@ -3,15 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void initialize_tree(tree * ptree)
-{
+void initialize_tree(tree * ptree) {
     ptree->root = NULL;
 
     return;
 }
 
-int where_to_add_new_node(node * original_node, node * new_node)
-{
+int where_to_add_new_node(node * original_node, node * new_node) {
     int compare =
         strcmp((original_node->node_item).word, (new_node->node_item).word);
 
@@ -23,11 +21,10 @@ int where_to_add_new_node(node * original_node, node * new_node)
         return THE_SAME;
 }
 
-bool add_item_to_tree(item new_item, tree * ptree)
-{
-    node *  new_node    = (node *) malloc(sizeof(node));
+bool add_item_to_tree(item new_item, tree * ptree) {
+    node * new_node = (node *)malloc(sizeof(node));
     node ** father_node = &ptree->root;
-    int     new_node_position;
+    int new_node_position;
 
     if (!new_node) /* the node is NULL */
         return false;
@@ -37,8 +34,7 @@ bool add_item_to_tree(item new_item, tree * ptree)
 
     if (!*father_node) /* the tree is empty */
         *father_node = new_node;
-    else
-    {
+    else {
         while (*father_node) /* father_node is no NULL */
         {
             new_node_position = where_to_add_new_node(*father_node, new_node);
@@ -60,8 +56,7 @@ bool add_item_to_tree(item new_item, tree * ptree)
     return true;
 }
 
-void show_tree_items(node * tree_root)
-{
+void show_tree_items(node * tree_root) {
     if (tree_root == NULL)
         return;
     printf("\"%s\" occurs %d times\n", (tree_root->node_item).word,
@@ -73,8 +68,7 @@ void show_tree_items(node * tree_root)
     return;
 }
 
-void clear_tree(node * tree_root)
-{
+void clear_tree(node * tree_root) {
     if (tree_root->left)
         clear_tree(tree_root->left);
     else if (tree_root->right)

@@ -14,17 +14,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
+int main(void) {
     font MyFont = {1, 12, 0, false, false, false};
-    int  Choice;
+    int Choice;
 
-    while (true)
-    {
+    while (true) {
         Choice = GetChoice(&MyFont);
 
-        switch (Choice)
-        {
+        switch (Choice) {
         case 'f':
             ChangeFont(&MyFont);
             EatLine();

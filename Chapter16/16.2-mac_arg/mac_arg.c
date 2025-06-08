@@ -3,8 +3,7 @@
 #define SQUARE(X) X * X
 #define PR(X) printf("The result is %d.\n", X)
 
-int main(void)
-{
+int main(void) {
     int x = 5;
     int z;
 

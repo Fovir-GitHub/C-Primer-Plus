@@ -3,8 +3,7 @@
 
 #include <stdbool.h>
 
-typedef struct item
-{
+typedef struct item {
     char petname[20];
     char petkind[20];
 } Item;
@@ -12,23 +11,21 @@ typedef struct item
 #define MAXITEMS 10
 #define SLEN 20
 
-typedef struct trnode
-{
-    Item            item;
+typedef struct trnode {
+    Item item;
     struct trnode * left;
     struct trnode * right;
 } Trnode;
 
-typedef struct tree
-{
+typedef struct tree {
     Trnode * root;
-    int      size;
+    int size;
 } Tree;
 
 void InitializeTree(Tree * ptree);
 bool TreeIsempty(const Tree * ptree);
 bool TreeIsFull(const Tree * ptree);
-int  TreeItemCount(const Tree * ptree);
+int TreeItemCount(const Tree * ptree);
 bool AddItem(const Item * pi, Tree * ptree);
 bool InTree(const Item * pi, const Tree * ptree);
 bool DeleteItem(const Item * pi, Tree * ptree);

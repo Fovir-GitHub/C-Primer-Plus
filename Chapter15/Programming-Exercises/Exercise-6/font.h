@@ -7,17 +7,16 @@
 
 enum STYLE { BOLD, ITALIC, UNDERLINE };
 
-typedef struct _FONT_
-{
+typedef struct _FONT_ {
     unsigned int FontID : 8;
     unsigned int FontSize : 7;
     unsigned int Alignment : 2;
-    bool         Bold : 1;
-    bool         Italic : 1;
-    bool         Underline : 1;
+    bool Bold : 1;
+    bool Italic : 1;
+    bool Underline : 1;
 } font;
 
-int  GetChoice(font * ft);
+int GetChoice(font * ft);
 void ShowFontStatus(font * ft);
 void EatLine(void);
 void ChangeFontSize(font * ft);

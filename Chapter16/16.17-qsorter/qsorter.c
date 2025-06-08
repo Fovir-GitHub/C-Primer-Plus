@@ -5,10 +5,9 @@
 
 void fillarray(double ar[], int n);
 void showarray(const double ar[], int n);
-int  mycomp(const void * p1, const void * p2);
+int mycomp(const void * p1, const void * p2);
 
-int main(void)
-{
+int main(void) {
     double vals[NUM];
     fillarray(vals, NUM);
     puts("Random list:");
@@ -20,22 +19,19 @@ int main(void)
     return 0;
 }
 
-void fillarray(double ar[], int n)
-{
+void fillarray(double ar[], int n) {
     int index;
 
     for (index = 0; index < n; index++)
-        ar[index] = (double) rand() / ((double) rand() + 0.1);
+        ar[index] = (double)rand() / ((double)rand() + 0.1);
 
     return;
 }
 
-void showarray(const double ar[], int n)
-{
+void showarray(const double ar[], int n) {
     int index;
 
-    for (index = 0; index < n; index++)
-    {
+    for (index = 0; index < n; index++) {
         printf("%9.4f ", ar[index]);
         if (index % 6 == 5)
             putchar('\n');
@@ -46,10 +42,9 @@ void showarray(const double ar[], int n)
     return;
 }
 
-int mycomp(const void * p1, const void * p2)
-{
-    const double * a1 = (const double *) p1;
-    const double * a2 = (const double *) p2;
+int mycomp(const void * p1, const void * p2) {
+    const double * a1 = (const double *)p1;
+    const double * a2 = (const double *)p2;
 
     if (*a1 < *a2)
         return -1;

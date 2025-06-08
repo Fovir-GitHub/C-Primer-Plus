@@ -7,21 +7,18 @@
 
 enum WHERE_TO_ADD_NODE { TO_LEFT = 1, TO_RIGHT = -1, THE_SAME = 0 };
 
-typedef struct
-{
+typedef struct {
     char word[WORD_MAX_LENGTH];
-    int  count;
+    int count;
 } item;
 
-typedef struct Node
-{
-    item          node_item;
+typedef struct Node {
+    item node_item;
     struct Node * left;
     struct Node * right;
 } node;
 
-typedef struct
-{
+typedef struct {
     node * root;
 } tree;
 

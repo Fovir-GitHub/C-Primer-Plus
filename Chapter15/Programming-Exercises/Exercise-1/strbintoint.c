@@ -10,8 +10,7 @@
 
 int BinaryString2Int(const char * str);
 
-int main(void)
-{
+int main(void) {
     char BinaryString[LEN];
 
     while (scanf("%s", BinaryString) == 1)
@@ -19,11 +18,11 @@ int main(void)
     return 0;
 }
 
-int BinaryString2Int(const char * str)
-{
+int BinaryString2Int(const char * str) {
     int Length = strlen(str);
-    int sum    = 0;
+    int sum = 0;
 
-    for (int i = 0; i < Length; i++) sum = (sum <<= 1) + (str[i] - '0');
+    for (int i = 0; i < Length; i++)
+        sum = (sum <<= 1) + (str[i] - '0');
     return sum;
 }

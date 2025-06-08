@@ -6,18 +6,16 @@
 #define CNTL_Z '\032'
 #define SLEN 81
 
-int main(void)
-{
-    char   file[SLEN];
-    char   ch;
+int main(void) {
+    char file[SLEN];
+    char ch;
     FILE * fp;
-    long   count, last;
+    long count, last;
 
     puts("Enter the name of the file to be processed:");
     scanf("%80s", file);
 
-    if ((fp = fopen(file, "rb")) == NULL)
-    {
+    if ((fp = fopen(file, "rb")) == NULL) {
         printf("reverse can't open %s\n", file);
         exit(EXIT_FAILURE);
     }
@@ -27,8 +25,7 @@ int main(void)
 
     printf("Last = %ld\n", last);
 
-    for (count = 1L; count <= last; count++)
-    {
+    for (count = 1L; count <= last; count++) {
         fseek(fp, -count, SEEK_END);
         ch = getc(fp);
         if (ch != CNTL_Z && ch != '\r')

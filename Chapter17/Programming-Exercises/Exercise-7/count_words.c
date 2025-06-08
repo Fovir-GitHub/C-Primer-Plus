@@ -2,19 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
-    FILE *       fp;
+int main(void) {
+    FILE * fp;
     const char * file_path = "test.in";
-    tree         count_words;
-    item         new_item;
+    tree count_words;
+    item new_item;
 
     new_item.count = 1;
-    fp             = fopen(file_path, "r");
+    fp = fopen(file_path, "r");
     initialize_tree(&count_words);
 
-    if (!fp)
-    {
+    if (!fp) {
         fprintf(stderr, "Can't open file.");
         exit(EXIT_FAILURE);
     }

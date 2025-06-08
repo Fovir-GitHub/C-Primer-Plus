@@ -8,20 +8,17 @@
 
 #define SIZE 80
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]) {
     FILE *in, *out;
-    int   ch;
+    int ch;
 
     // If the arument is wrong.
-    if (argc != 2)
-    {
+    if (argc != 2) {
         fprintf(stderr, "Usage: %s filename.\n", argv[0]);
         exit(EXIT_FAILURE);
     }
     // If fail to open the file.
-    if ((in = fopen(argv[1], "rb")) == NULL)
-    {
+    if ((in = fopen(argv[1], "rb")) == NULL) {
         fprintf(stderr, "Can't open %s\n", argv[1]);
         exit(EXIT_FAILURE);
     }
@@ -30,7 +27,8 @@ int main(int argc, char * argv[])
     // Open the copied file.
     out = fopen(file, "wb");
     // Copy
-    while ((ch = getc(in)) != EOF) putc(ch, out);
+    while ((ch = getc(in)) != EOF)
+        putc(ch, out);
     printf("Copied!\n");
     // Close file.
     fclose(in);

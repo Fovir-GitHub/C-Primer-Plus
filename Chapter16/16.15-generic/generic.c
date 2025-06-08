@@ -3,23 +3,22 @@
 
 #define RAD_TO_DEG (180 / (4 * atan(1)))
 
-#define SQRT(X) \
+#define SQRT(X)                                                                \
     _Generic((X), long double: sqrtl, default: sqrt, float: sqrtf)(X)
 
-#define SIN(X)                               \
-    _Generic((X),                            \
-        long double: sinl((X) / RAD_TO_DEG), \
-        default: sin((X) / RAD_TO_DEG),      \
+#define SIN(X)                                                                 \
+    _Generic((X),                                                              \
+        long double: sinl((X) / RAD_TO_DEG),                                   \
+        default: sin((X) / RAD_TO_DEG),                                        \
         float: sinf((X) / RAD_TO_DEG))
 
-int main(void)
-{
-    float       x   = 45.0f;
-    double      xx  = 45.0;
+int main(void) {
+    float x = 45.0f;
+    double xx = 45.0;
     long double xxx = 45.0L;
 
-    long double y   = SQRT(x);
-    long double yy  = SQRT(xx);
+    long double y = SQRT(x);
+    long double yy = SQRT(xx);
     long double yyy = SQRT(xxx);
 
     printf("%.17Lf\n", y);
@@ -27,7 +26,7 @@ int main(void)
     printf("%.17Lf\n", yyy);
 
     int i = 45;
-    yy    = SQRT(i);
+    yy = SQRT(i);
     printf("%.17Lf\n", yy);
     yyy = SIN(xxx);
     printf("%.17Lf\n", yyy);

@@ -11,20 +11,18 @@
 
 #define SIZE 80
 
-int main(void)
-{
+int main(void) {
     FILE *in, *out;
-    char  source_file[SIZE];
-    char  output_file[SIZE];
-    int   ch;
+    char source_file[SIZE];
+    char output_file[SIZE];
+    int ch;
 
     // Get source file name.
     puts("Please enter the source file name:");
     scanf("%s", source_file);
 
     // If can not open the source file.
-    if ((in = fopen(source_file, "r")) == NULL)
-    {
+    if ((in = fopen(source_file, "r")) == NULL) {
         fprintf(stderr, "Can't open %s", source_file);
         exit(EXIT_FAILURE);
     }
@@ -36,7 +34,8 @@ int main(void)
     out = fopen(output_file, "w");
 
     // Start copy.
-    while ((ch = getc(in)) != EOF) putc(toupper(ch), out);
+    while ((ch = getc(in)) != EOF)
+        putc(toupper(ch), out);
     puts("Done!");
 
     // Close files.

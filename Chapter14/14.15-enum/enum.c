@@ -10,26 +10,21 @@ const char * colors[] = {"red", "orange", "yellow", "green", "blue", "violet"};
 
 char * s_gets(char * st, int n);
 
-int main(void)
-{
-    char         choice[LEN];
+int main(void) {
+    char choice[LEN];
     enum spectum color;
-    bool         color_is_found = false;
+    bool color_is_found = false;
 
     puts("Enter a color (empty line to quit):");
-    while (s_gets(choice, LEN) != NULL && choice[0] != '\0')
-    {
-        for (color = red; color < violet; color++)
-        {
-            if (strcmp(choice, colors[color]) == 0)
-            {
+    while (s_gets(choice, LEN) != NULL && choice[0] != '\0') {
+        for (color = red; color < violet; color++) {
+            if (strcmp(choice, colors[color]) == 0) {
                 color_is_found = true;
                 break;
             }
         }
         if (color_is_found)
-            switch (color)
-            {
+            switch (color) {
             case red:
                 puts("Roses are red.");
                 break;
@@ -59,20 +54,19 @@ int main(void)
     return 0;
 }
 
-char * s_gets(char * st, int n)
-{
+char * s_gets(char * st, int n) {
     char * ret_val;
     char * find;
 
     ret_val = fgets(st, n, stdin);
 
-    if (ret_val)
-    {
+    if (ret_val) {
         find = strchr(ret_val, '\n');
         if (find)
             *find = '\0';
         else
-            while (getchar() != '\n') continue;
+            while (getchar() != '\n')
+                continue;
     }
 
     return ret_val;

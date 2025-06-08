@@ -2,22 +2,19 @@
 
 #define LEN 20
 
-struct names
-{
+struct names {
     char first[LEN];
     char last[LEN];
 };
 
-struct guy
-{
+struct guy {
     struct names handle;
-    char         favfood[LEN];
-    char         job[LEN];
-    float        income;
+    char favfood[LEN];
+    char job[LEN];
+    float income;
 };
 
-int main(void)
-{
+int main(void) {
     struct guy fellow[2] = {
         {{"Ewen", "villard"}, "grilled salmon", "personality coach", 68112.00},
         {{"Rondney", "Swillbelly"}, "tripe", "tabloid editor", 232400.00}};

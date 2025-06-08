@@ -3,8 +3,7 @@
 
 #define SLEN 32
 
-struct names_st
-{
+struct names_st {
     char first[SLEN];
     char last[SLEN];
 };

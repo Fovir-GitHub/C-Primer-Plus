@@ -1,8 +1,7 @@
 #include "names_st.h"
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
     names candidate;
 
     get_names(&candidate);

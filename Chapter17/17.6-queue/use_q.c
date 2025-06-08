@@ -1,38 +1,30 @@
 #include "queue.h"
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
     Queue line;
-    Item  temp;
-    char  ch;
+    Item temp;
+    char ch;
 
     InitializeQueue(&line);
     puts("Testing the Queue interface. Type a to add a value,");
     puts("type d to delete a value, and type q to quit.");
 
-    while ((ch = getchar()) != 'q')
-    {
+    while ((ch = getchar()) != 'q') {
         if (ch != 'a' && ch != 'd')
             continue;
-        if (ch == 'a')
-        {
+        if (ch == 'a') {
             printf("Integer to add: ");
             scanf("%d", &temp);
-            if (!QueueIsFull(&line))
-            {
+            if (!QueueIsFull(&line)) {
                 printf("Putting %d into queue\n", temp);
                 EnQueue(temp, &line);
-            }
-            else
+            } else
                 puts("Queue is full1");
-        }
-        else
-        {
+        } else {
             if (QueueIsEmpty(&line))
                 puts("Noting to delete!");
-            else
-            {
+            else {
                 DeQueue(&temp, &line);
                 printf("Removing %d from queue\n", temp);
             }

@@ -6,13 +6,11 @@
 
 #define MAX 41
 
-int main(void)
-{
+int main(void) {
     FILE * fp;
-    char   words[MAX];
+    char words[MAX];
 
-    if ((fp = fopen("wordy.txt", "a+")) == NULL)
-    {
+    if ((fp = fopen("wordy.txt", "a+")) == NULL) {
         fprintf(stdout, "Can't open wordy file.\n");
         exit(EXIT_FAILURE);
     }
@@ -26,7 +24,8 @@ int main(void)
     puts("File contents:");
     rewind(fp); // go back to the beginning of file
 
-    while (fscanf(fp, "%s", words) == 1) puts(words);
+    while (fscanf(fp, "%s", words) == 1)
+        puts(words);
     puts("Done!");
     if (fclose(fp))
         fprintf(stderr, "Error closing file\n");

@@ -5,16 +5,15 @@
 #define LEN 81
 
 char * s_gets(char * st, int n);
-char   showmenu(void);
-void   eatline(void);
-void   show(void (*fp)(char *), char * str);
-void   ToUpper(char *);
-void   ToLower(char *);
-void   Transpose(char *);
-void   Dummy(char *);
+char showmenu(void);
+void eatline(void);
+void show(void (*fp)(char *), char * str);
+void ToUpper(char *);
+void ToLower(char *);
+void Transpose(char *);
+void Dummy(char *);
 
-int main(void)
-{
+int main(void) {
     char line[LEN];
     char copy[LEN];
     char choice;
@@ -22,12 +21,9 @@ int main(void)
 
     puts("Enter a string (empty line to quit):");
 
-    while (s_gets(line, LEN) != NULL && line[0] != '\0')
-    {
-        while ((choice = showmenu()) != 'n')
-        {
-            switch (choice)
-            {
+    while (s_gets(line, LEN) != NULL && line[0] != '\0') {
+        while ((choice = showmenu()) != 'n') {
+            switch (choice) {
             case 'u':
                 pfun = ToUpper;
                 break;
@@ -52,8 +48,7 @@ int main(void)
     return 0;
 }
 
-char showmenu(void)
-{
+char showmenu(void) {
     char ans;
     puts("Enter menu choice:");
     puts("u) uppercase       l) lowercase");
@@ -63,8 +58,7 @@ char showmenu(void)
     ans = tolower(ans);
     eatline();
 
-    while (strchr("ulton", ans) == NULL)
-    {
+    while (strchr("ulton", ans) == NULL) {
         puts("Please enter a u, l, t, o, or n:");
         ans = tolower(getchar());
         eatline();
@@ -73,16 +67,14 @@ char showmenu(void)
     return ans;
 }
 
-void eatline(void)
-{
-    while (getchar() != '\n') continue;
+void eatline(void) {
+    while (getchar() != '\n')
+        continue;
     return;
 }
 
-void ToUpper(char * str)
-{
-    while (*str)
-    {
+void ToUpper(char * str) {
+    while (*str) {
         *str = toupper(*str);
         str++;
     }
@@ -90,10 +82,8 @@ void ToUpper(char * str)
     return;
 }
 
-void ToLower(char * str)
-{
-    while (*str)
-    {
+void ToLower(char * str) {
+    while (*str) {
         *str = tolower(*str);
         str++;
     }
@@ -101,10 +91,8 @@ void ToLower(char * str)
     return;
 }
 
-void Transpose(char * str)
-{
-    while (*str)
-    {
+void Transpose(char * str) {
+    while (*str) {
         if (islower(*str))
             *str = toupper(*str);
         else if (isupper(*str))
@@ -115,33 +103,30 @@ void Transpose(char * str)
     return;
 }
 
-void Dummy(char * str)
-{
+void Dummy(char * str) {
     // leaves string unchanged.
 }
 
-void show(void (*fp)(char *), char * str)
-{
+void show(void (*fp)(char *), char * str) {
     (*fp)(str);
     puts(str);
 
     return;
 }
 
-char * s_gets(char * st, int n)
-{
+char * s_gets(char * st, int n) {
     char * ret_val;
     char * find;
 
     ret_val = fgets(st, n, stdin);
 
-    if (ret_val)
-    {
+    if (ret_val) {
         find = strchr(ret_val, '\n');
         if (find)
             *find = '\0';
         else
-            while (getchar() != '\n') continue;
+            while (getchar() != '\n')
+                continue;
     }
 
     return ret_val;

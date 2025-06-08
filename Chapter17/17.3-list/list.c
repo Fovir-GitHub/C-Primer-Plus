@@ -2,23 +2,18 @@
 
 static void CopyToNode(Item item, Node * pnode);
 
-void InitializeList(List * plist)
-{
-    *plist = NULL;
-}
-bool ListIsEmpty(const List * plist)
-{
+void InitializeList(List * plist) { *plist = NULL; }
+bool ListIsEmpty(const List * plist) {
     if (*plist == NULL)
         return true;
     return false;
 }
 
-bool ListIsFull(const List * plist)
-{
+bool ListIsFull(const List * plist) {
     Node * pt;
-    bool   full;
+    bool full;
 
-    pt = (Node *) malloc(sizeof(Node));
+    pt = (Node *)malloc(sizeof(Node));
     if (pt == NULL)
         full = true;
     else
@@ -28,13 +23,11 @@ bool ListIsFull(const List * plist)
     return full;
 }
 
-unsigned int ListItemCount(const List * plist)
-{
+unsigned int ListItemCount(const List * plist) {
     unsigned int count = 0;
-    Node *       pnode = *plist;
+    Node * pnode = *plist;
 
-    while (pnode)
-    {
+    while (pnode) {
         ++count;
         pnode = pnode->next;
     }
@@ -42,12 +35,11 @@ unsigned int ListItemCount(const List * plist)
     return count;
 }
 
-bool AddItem(Item item, List * plist)
-{
+bool AddItem(Item item, List * plist) {
     Node * pnew;
     Node * scan = *plist;
 
-    pnew = (Node *) malloc(sizeof(Node));
+    pnew = (Node *)malloc(sizeof(Node));
     if (pnew == NULL)
         return false;
 
@@ -56,21 +48,19 @@ bool AddItem(Item item, List * plist)
 
     if (scan == NULL)
         *plist = pnew;
-    else
-    {
-        while (scan->next != NULL) scan = scan->next;
+    else {
+        while (scan->next != NULL)
+            scan = scan->next;
         scan->next = pnew;
     }
 
     return true;
 }
 
-void Traverse(const List * plist, void (*pfun)(Item Item))
-{
+void Traverse(const List * plist, void (*pfun)(Item Item)) {
     Node * pnode = *plist;
 
-    while (pnode)
-    {
+    while (pnode) {
         (*pfun)(pnode->item);
         pnode = pnode->next;
     }
@@ -78,12 +68,10 @@ void Traverse(const List * plist, void (*pfun)(Item Item))
     return;
 }
 
-void EmtpyTheList(List * plist)
-{
+void EmtpyTheList(List * plist) {
     Node * psave;
 
-    while (*plist)
-    {
+    while (*plist) {
         psave = (*plist)->next;
         free(*plist);
         *plist = psave;
@@ -92,8 +80,7 @@ void EmtpyTheList(List * plist)
     return;
 }
 
-void CopyToNode(Item item, Node * pnode)
-{
+void CopyToNode(Item item, Node * pnode) {
     pnode->item = item;
 
     return;

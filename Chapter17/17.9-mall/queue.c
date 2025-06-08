@@ -5,51 +5,37 @@
 static void CopyToNode(Item item, Node * pn);
 static void CopyToItem(Node * pn, Item * pi);
 
-static void CopyToNode(Item item, Node * pn)
-{
+static void CopyToNode(Item item, Node * pn) {
     pn->item = item;
     return;
 }
 
-static void CopyToItem(Node * pn, Item * pi)
-{
+static void CopyToItem(Node * pn, Item * pi) {
     *pi = pn->item;
     return;
 }
 
-void InitializeQueue(Queue * pq)
-{
+void InitializeQueue(Queue * pq) {
     pq->front = pq->rear = NULL;
-    pq->items            = 0;
+    pq->items = 0;
 
     return;
 }
 
-bool QueueIsFull(const Queue * pq)
-{
-    return pq->items == MAXQUEUE;
-}
+bool QueueIsFull(const Queue * pq) { return pq->items == MAXQUEUE; }
 
-bool QueueIsEmpty(const Queue * pq)
-{
-    return pq->items == 0;
-}
+bool QueueIsEmpty(const Queue * pq) { return pq->items == 0; }
 
-int QueueItemCount(const Queue * pq)
-{
-    return pq->items;
-}
+int QueueItemCount(const Queue * pq) { return pq->items; }
 
-bool EnQueue(Item item, Queue * pq)
-{
+bool EnQueue(Item item, Queue * pq) {
     Node * pnew;
 
     if (QueueIsFull(pq))
         return false;
-    pnew = (Node *) malloc(sizeof(Node));
+    pnew = (Node *)malloc(sizeof(Node));
 
-    if (pnew == NULL)
-    {
+    if (pnew == NULL) {
         fprintf(stderr, "Unable to allocate memory!\n");
         exit(1);
     }
@@ -65,15 +51,14 @@ bool EnQueue(Item item, Queue * pq)
     return true;
 }
 
-bool DeQueue(Item * pitem, Queue * pq)
-{
+bool DeQueue(Item * pitem, Queue * pq) {
     Node * pt;
 
     if (QueueIsEmpty(pq))
         return false;
 
     CopyToItem(pq->front, pitem);
-    pt        = pq->front;
+    pt = pq->front;
     pq->front = pq->front->next;
     free(pt);
     pq->items--;
@@ -84,10 +69,10 @@ bool DeQueue(Item * pitem, Queue * pq)
     return true;
 }
 
-void EmptyTheQueue(Queue * pq)
-{
+void EmptyTheQueue(Queue * pq) {
     Item dummy;
-    while (!QueueIsEmpty(pq)) DeQueue(&dummy, pq);
+    while (!QueueIsEmpty(pq))
+        DeQueue(&dummy, pq);
 
     return;
 }

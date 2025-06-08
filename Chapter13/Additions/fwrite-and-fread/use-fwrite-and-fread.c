@@ -5,13 +5,12 @@
 
 #define SIZE 80
 
-int main(void)
-{
+int main(void) {
     FILE *out, *in;
 
     // Use fwrite().
-    char * str    = "This is a test.";
-    double number = (double) 1 / 3;
+    char * str = "This is a test.";
+    double number = (double)1 / 3;
 
     // Open output file.
     out = fopen("fwrite1.out", "w");
@@ -24,7 +23,7 @@ int main(void)
     fclose(out);
 
     // Use fread().
-    char   read_str[SIZE];
+    char read_str[SIZE];
     double num;
 
     // Open file.

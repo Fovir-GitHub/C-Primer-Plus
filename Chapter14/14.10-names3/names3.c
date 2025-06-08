@@ -4,21 +4,19 @@
 
 #define SLEN 81
 
-struct namect
-{
+struct namect {
     char * fname;
     char * lname;
-    int    letters;
+    int letters;
 };
 
-void   getinfo(struct namect *);
-void   makeinfo(struct namect *);
-void   showinfo(const struct namect *);
-void   cleanup(struct namect *);
+void getinfo(struct namect *);
+void makeinfo(struct namect *);
+void showinfo(const struct namect *);
+void cleanup(struct namect *);
 char * s_gets(char * st, int n);
 
-int main(void)
-{
+int main(void) {
     struct namect person;
 
     getinfo(&person);
@@ -29,55 +27,50 @@ int main(void)
     return 0;
 }
 
-void getinfo(struct namect * pst)
-{
+void getinfo(struct namect * pst) {
     char temp[SLEN];
     printf("Please enter your first name.\n");
     s_gets(temp, SLEN);
 
-    pst->fname = (char *) malloc(strlen(temp) + 1);
+    pst->fname = (char *)malloc(strlen(temp) + 1);
     strcpy(pst->fname, temp);
     printf("Please enter your last name.\n");
     s_gets(temp, SLEN);
-    pst->lname = (char *) malloc(strlen(temp) + 1);
+    pst->lname = (char *)malloc(strlen(temp) + 1);
     strcpy(pst->lname, temp);
 
     return;
 }
 
-void makeinfo(struct namect * pst)
-{
+void makeinfo(struct namect * pst) {
     pst->letters = strlen(pst->fname) + strlen(pst->lname);
     return;
 }
 
-void showinfo(const struct namect * pst)
-{
+void showinfo(const struct namect * pst) {
     printf("%s %s, your name contains %d letters.\n", pst->fname, pst->lname,
            pst->letters);
     return;
 }
 
-void cleanup(struct namect * pst)
-{
+void cleanup(struct namect * pst) {
     free(pst->fname);
     free(pst->lname);
     return;
 }
 
-char * s_gets(char * st, int n)
-{
+char * s_gets(char * st, int n) {
     char * ret_val;
     char * find;
 
     ret_val = fgets(st, n, stdin);
-    if (ret_val)
-    {
+    if (ret_val) {
         find = strchr(st, '\n');
         if (find)
             *find = '\0';
         else
-            while (getchar() != '\n') continue;
+            while (getchar() != '\n')
+                continue;
     }
 
     return ret_val;

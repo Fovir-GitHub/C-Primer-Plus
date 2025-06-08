@@ -6,13 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
+int main(void) {
     double x, y, z;
 
     puts("Enter a pair of numbers (0 0 to quit):");
-    while (scanf("%lf%lf", &x, &y) == 2 && (x != 0 || y != 0))
-    {
+    while (scanf("%lf%lf", &x, &y) == 2 && (x != 0 || y != 0)) {
         z = x * x - y * y;
         // both are OK
         assert(z >= 0);

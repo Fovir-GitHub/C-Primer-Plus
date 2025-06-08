@@ -15,15 +15,13 @@
 
 typedef char item;
 
-typedef struct Node
-{
-    item          node_item;
+typedef struct Node {
+    item node_item;
     struct Node * front;
     struct Node * next;
 } node;
 
-typedef struct Stack
-{
+typedef struct Stack {
     node * head;
     node * rear;
 } stack;

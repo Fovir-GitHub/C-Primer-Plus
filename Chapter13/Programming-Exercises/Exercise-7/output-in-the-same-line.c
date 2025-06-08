@@ -11,37 +11,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]) {
     FILE *first, *second;
-    char  ch = 0;
+    char ch = 0;
 
     // If arguments are error.
-    if (argc != 3)
-    {
+    if (argc != 3) {
         fprintf(stderr, "Usage: %s filename1 filename2", argv[0]);
         exit(EXIT_FAILURE);
     }
     // If can't open file.
-    if ((first = fopen(argv[1], "r")) == NULL)
-    {
+    if ((first = fopen(argv[1], "r")) == NULL) {
         fprintf(stderr, "Can't open the first file.");
         exit(EXIT_FAILURE);
     }
-    if ((second = fopen(argv[2], "r")) == NULL)
-    {
+    if ((second = fopen(argv[2], "r")) == NULL) {
         fprintf(stderr, "Can't open the second file.");
         exit(EXIT_FAILURE);
     }
-    while (!(feof(first) && feof(second)))
-    {
-        if (!feof(first))
-        {
-            while ((ch = getc(first)) != '\n' && ch != EOF) putc(ch, stdout);
+    while (!(feof(first) && feof(second))) {
+        if (!feof(first)) {
+            while ((ch = getc(first)) != '\n' && ch != EOF)
+                putc(ch, stdout);
             putc(' ', stdout);
         }
         if (!feof(second))
-            while ((ch = getc(second)) != '\n' && ch != EOF) putc(ch, stdout);
+            while ((ch = getc(second)) != '\n' && ch != EOF)
+                putc(ch, stdout);
 
         putc('\n', stdout);
     }

@@ -22,8 +22,7 @@
 void generate_data(int array[], int array_size);
 void randomly_pick_numbers(int array[], int array_size, int pick_number);
 
-int main(void)
-{
+int main(void) {
     srand(time(NULL));
     int array[ARRAY_SIZE];
     int pick_number;
@@ -31,10 +30,8 @@ int main(void)
     generate_data(array, ARRAY_SIZE);
 
     puts("Please enter number of pick:");
-    while (scanf("%d", &pick_number) == 1)
-    {
-        if (pick_number > ARRAY_SIZE)
-        {
+    while (scanf("%d", &pick_number) == 1) {
+        if (pick_number > ARRAY_SIZE) {
             puts("Please enter again:");
             continue;
         }
@@ -47,22 +44,21 @@ int main(void)
     return 0;
 }
 
-void generate_data(int array[], int array_size)
-{
-    for (int i = 0; i < array_size; i++) array[i] = rand() % 100;
+void generate_data(int array[], int array_size) {
+    for (int i = 0; i < array_size; i++)
+        array[i] = rand() % 100;
     return;
 }
 
-void randomly_pick_numbers(int array[], int array_size, int pick_number)
-{
+void randomly_pick_numbers(int array[], int array_size, int pick_number) {
     bool record[array_size];
     memset(record, false, sizeof(record));
     int pick_position = 0;
-    int count         = 0;
+    int count = 0;
 
-    for (int i = 0; i < pick_number; i++)
-    {
-        while (record[pick_position]) pick_position = rand() % array_size;
+    for (int i = 0; i < pick_number; i++) {
+        while (record[pick_position])
+            pick_position = rand() % array_size;
 
         record[pick_position] = true;
 

@@ -1,7 +1,6 @@
 #include "font.h"
 
-int GetChoice(font * ft)
-{
+int GetChoice(font * ft) {
     char Choice;
     ShowFontStatus(ft);
     putchar('\n');
@@ -14,8 +13,7 @@ int GetChoice(font * ft)
     Choice = getchar();
     EatLine();
 
-    while (strchr("fsabiuq", Choice) == NULL)
-    {
+    while (strchr("fsabiuq", Choice) == NULL) {
         puts("Please enter right choice:");
         Choice = getchar();
         EatLine();
@@ -24,8 +22,7 @@ int GetChoice(font * ft)
     return Choice;
 }
 
-void ShowFontStatus(font * ft)
-{
+void ShowFontStatus(font * ft) {
     printf("ID SIZE ALIGNMENT   B   I   U\n");
     printf("%2d %4d    %s    %s %s %s\n", ft->FontID, ft->FontSize,
            (ft->Alignment == 0 ? ("Left")
@@ -36,13 +33,11 @@ void ShowFontStatus(font * ft)
     return;
 }
 
-void ChangeFontSize(font * ft)
-{
+void ChangeFontSize(font * ft) {
     int NewFontSize;
     printf("Enter font size (0~127): ");
 
-    while (scanf("%d", &NewFontSize) == 1)
-    {
+    while (scanf("%d", &NewFontSize) == 1) {
         if (NewFontSize < 0 || NewFontSize > 127)
             printf("Enter font size (0~127): ");
         else
@@ -54,8 +49,7 @@ void ChangeFontSize(font * ft)
     return;
 }
 
-void ChangeAlignment(font * ft)
-{
+void ChangeAlignment(font * ft) {
     char Choice;
 
     // put menu
@@ -65,8 +59,7 @@ void ChangeAlignment(font * ft)
     Choice = getchar();
     EatLine();
 
-    while (strchr("lcr", Choice) == NULL)
-    {
+    while (strchr("lcr", Choice) == NULL) {
         EatLine();
         puts("Please enter right choice:");
         EatLine();
@@ -76,10 +69,8 @@ void ChangeAlignment(font * ft)
     return;
 }
 
-void ToggleStyle(font * ft, int style)
-{
-    switch (style)
-    {
+void ToggleStyle(font * ft, int style) {
+    switch (style) {
     case BOLD:
         ft->Bold ^= 1;
         break;
@@ -93,13 +84,11 @@ void ToggleStyle(font * ft, int style)
     return;
 }
 
-void ChangeFont(font * ft)
-{
+void ChangeFont(font * ft) {
     int NewFontID;
     printf("Please enter font ID(1~99): ");
 
-    while (scanf("%d", &NewFontID) == 1)
-    {
+    while (scanf("%d", &NewFontID) == 1) {
         if (NewFontID < 1 || NewFontID > 99)
             printf("Please enter font ID(1~99): ");
         else
@@ -110,8 +99,8 @@ void ChangeFont(font * ft)
     return;
 }
 
-void EatLine(void)
-{
-    while (getchar() != '\n') continue;
+void EatLine(void) {
+    while (getchar() != '\n')
+        continue;
     return;
 }
